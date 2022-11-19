@@ -27,7 +27,7 @@ struct Converter {
     static private func roundValue(value : String, precision : Int) -> String{
         if let numValue = Double(value){
             let precisionValue : Double = calculatePrecisionValue(precision)
-            var roundedValue = round(numValue * precisionValue) / precisionValue
+            let roundedValue = round(numValue * precisionValue) / precisionValue
             let roundedStringValue =  roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
             return roundedStringValue
         }
