@@ -13,6 +13,16 @@
 		9C87FCD6291DD72B004B107E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCD5291DD72B004B107E /* Preview Assets.xcassets */; };
 		9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FCDD2927FC7F004B107E /* NumberFieldView.swift */; };
 		9C87FCF529284B0A004B107E /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCF429284B0A004B107E /* Manrope-ExtraBold.ttf */; };
+		9C87FD0029286190004B107E /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFA29286190004B107E /* Manrope-Bold.ttf */; };
+		9C87FD0129286190004B107E /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFB29286190004B107E /* Manrope-Light.ttf */; };
+		9C87FD0229286190004B107E /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFC29286190004B107E /* Manrope-Regular.ttf */; };
+		9C87FD0329286190004B107E /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFD29286190004B107E /* Manrope-ExtraLight.ttf */; };
+		9C87FD0429286190004B107E /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFE29286190004B107E /* Manrope-SemiBold.ttf */; };
+		9C87FD0529286190004B107E /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FCFF29286190004B107E /* Manrope-Medium.ttf */; };
+		9C87FD07292867BF004B107E /* SourceCodePro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C87FD06292867BF004B107E /* SourceCodePro-Regular.ttf */; };
+		9C87FD0A292911AB004B107E /* UnitTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD09292911AB004B107E /* UnitTypes.swift */; };
+		9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD0E29296BA3004B107E /* LengthConverter.swift */; };
+		9C87FD1129296BCA004B107E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD1029296BCA004B107E /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +34,16 @@
 		9C87FCDD2927FC7F004B107E /* NumberFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldView.swift; sourceTree = "<group>"; };
 		9C87FCF429284B0A004B107E /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Manrope-ExtraBold.ttf"; path = "UnitConverter/Fonts/Manrope-ExtraBold.ttf"; sourceTree = SOURCE_ROOT; };
 		9C87FCF829285DDA004B107E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/bennelson/Documents/Git_Repositories/UnitConverter/UnitConverter/UnitConverter/Info.plist; sourceTree = "<absolute>"; };
+		9C87FCFA29286190004B107E /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		9C87FCFB29286190004B107E /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
+		9C87FCFC29286190004B107E /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		9C87FCFD29286190004B107E /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		9C87FCFE29286190004B107E /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		9C87FCFF29286190004B107E /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		9C87FD06292867BF004B107E /* SourceCodePro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.ttf"; sourceTree = "<group>"; };
+		9C87FD09292911AB004B107E /* UnitTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypes.swift; sourceTree = "<group>"; };
+		9C87FD0E29296BA3004B107E /* LengthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConverter.swift; sourceTree = "<group>"; };
+		9C87FD1029296BCA004B107E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,8 @@
 		9C87FCCD291DD729004B107E /* UnitConverter */ = {
 			isa = PBXGroup;
 			children = (
+				9C87FD0B29295369004B107E /* Utilities */,
+				9C87FD0829291184004B107E /* Model */,
 				9C87FCDF292802D8004B107E /* Fonts */,
 				9C87FCDC2927FC3C004B107E /* Components */,
 				9C87FCCE291DD729004B107E /* UnitConverterApp.swift */,
@@ -86,9 +108,33 @@
 		9C87FCDF292802D8004B107E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9C87FD06292867BF004B107E /* SourceCodePro-Regular.ttf */,
 				9C87FCF429284B0A004B107E /* Manrope-ExtraBold.ttf */,
+				9C87FCFA29286190004B107E /* Manrope-Bold.ttf */,
+				9C87FCFD29286190004B107E /* Manrope-ExtraLight.ttf */,
+				9C87FCFB29286190004B107E /* Manrope-Light.ttf */,
+				9C87FCFF29286190004B107E /* Manrope-Medium.ttf */,
+				9C87FCFC29286190004B107E /* Manrope-Regular.ttf */,
+				9C87FCFE29286190004B107E /* Manrope-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9C87FD0829291184004B107E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C87FD09292911AB004B107E /* UnitTypes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C87FD0B29295369004B107E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9C87FD1029296BCA004B107E /* Converter.swift */,
+				9C87FD0E29296BA3004B107E /* LengthConverter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +195,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C87FD0029286190004B107E /* Manrope-Bold.ttf in Resources */,
 				9C87FCF529284B0A004B107E /* Manrope-ExtraBold.ttf in Resources */,
+				9C87FD0229286190004B107E /* Manrope-Regular.ttf in Resources */,
+				9C87FD07292867BF004B107E /* SourceCodePro-Regular.ttf in Resources */,
 				9C87FCD6291DD72B004B107E /* Preview Assets.xcassets in Resources */,
 				9C87FCD3291DD72B004B107E /* Assets.xcassets in Resources */,
+				9C87FD0329286190004B107E /* Manrope-ExtraLight.ttf in Resources */,
+				9C87FD0529286190004B107E /* Manrope-Medium.ttf in Resources */,
+				9C87FD0429286190004B107E /* Manrope-SemiBold.ttf in Resources */,
+				9C87FD0129286190004B107E /* Manrope-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +217,10 @@
 			files = (
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
+				9C87FD1129296BCA004B107E /* Converter.swift in Sources */,
 				9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */,
+				9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */,
+				9C87FD0A292911AB004B107E /* UnitTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

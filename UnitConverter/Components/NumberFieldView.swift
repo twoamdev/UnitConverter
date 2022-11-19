@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct NumberFieldView: View {
-    @State private var valueA: String = ""
+    @Binding var name: String
+    @Binding var input: String
+    @State private var prevInput : String = ""
+    
     var body: some View {
-        TextField("Number A", text: $valueA)
-            .font(Font.custom("Manrope-ExtraBold", size: 20))
-            //.keyboardType(.decimalPad)
-            
-    }
-}
-
-struct NumberFieldView_Previews: PreviewProvider {
-    static var previews: some View {
-        NumberFieldView()
+        TextField(name, text: $input)
+            .keyboardType(.decimalPad)
+            .onChange(of: input, perform: { newInput in
+                
+                let maxDigitLength = "30"
+                let maxDecimalLength = "20"
+                
+                let regEx = "^[0-9]{0,\(maxDigitLength)}(\\.[0-9]{0,\(maxDecimalLength)})?$"
+                let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+                let isValidInput = newInput == "." ? false : pred.evaluate(with: newInput)
+                
+                
+                
+                input = !isValidInput ? prevInput : newInput
+                prevInput = input
+            })
     }
 }
