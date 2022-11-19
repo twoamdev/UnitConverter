@@ -42,6 +42,9 @@ struct ContentView: View {
                     Text(unitType.abbreviation)
                         .foregroundColor(self.selectIndexA == i ? Color.red : Color.blue)
                 })
+                    .onChange(of: self.selectIndexA, perform: { _ in
+                        inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
+                    })
             }
         }
         .buttonStyle(.bordered)
