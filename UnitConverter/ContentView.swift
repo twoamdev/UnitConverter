@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    
+    @State private var inputA = ""
+    
     var body: some View {
-        Text("Hello, world!")
-      
+        NumberFieldView()
+            .textFieldStyle(.roundedBorder)
+            .padding(.horizontal)
+            
+            
     }
 }
 
