@@ -21,8 +21,8 @@ enum Units : CaseIterable {
 
 enum Length : CaseIterable{
     
-    //case meters, kilometers, feet, inches, nanometers, micrometers, millimeters, centimeters
-    case nanometers, micrometers, millimeters, centimeters, meters, kilometers, feet, inches
+    case nanometers, micrometers, millimeters, centimeters, meters, kilometers,
+         inches, feet, yards, miles, nauticalMiles
     
     var abbreviation: String {
         switch self {
@@ -42,6 +42,12 @@ enum Length : CaseIterable{
             return "mm"
         case .centimeters:
             return "cm"
+        case .yards:
+            return "yd"
+        case .miles:
+            return "mi"
+        case .nauticalMiles:
+            return "NM"
         }
     }
     var fullName: String {
@@ -62,6 +68,12 @@ enum Length : CaseIterable{
             return "millimeters"
         case .centimeters:
             return "centimeters"
+        case .yards:
+            return "yards"
+        case .miles:
+            return "miles"
+        case .nauticalMiles:
+            return "nautical miles"
         }
     }
 }

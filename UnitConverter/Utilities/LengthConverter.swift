@@ -27,6 +27,13 @@ struct LengthConverter {
             return convertMillimetersToB(typeB,value)
         case Length.centimeters.fullName:
             return convertCentimetersToB(typeB,value)
+        case Length.yards.fullName:
+            return convertYardsToB(typeB,value)
+            /*
+        case Length.miles.fullName:
+            return convertMilesToB(typeB,value)
+        case Length.nauticalMiles.fullName:
+            return convertNauticalMilesToB(typeB,value)*/
         
         default:
             return ""
@@ -51,6 +58,8 @@ struct LengthConverter {
             return convertMetersToMillimeters(value)
         case Length.centimeters.fullName:
             return convertMetersToCentimeters(value)
+        case Length.yards.fullName:
+            return convertMetersToYards(value)
         default:
             return ""
         }
@@ -74,6 +83,8 @@ struct LengthConverter {
             return convertFeetToMillimeters(value)
         case Length.centimeters.fullName:
             return convertFeetToCentimeters(value)
+        case Length.yards.fullName:
+            return convertFeetToYards(value)
         default:
             return ""
         }
@@ -97,6 +108,8 @@ struct LengthConverter {
             return convertInchesToMillimeters(value)
         case Length.centimeters.fullName:
             return convertInchesToCentimeters(value)
+        case Length.yards.fullName:
+            return convertInchesToYards(value)
         default:
             return ""
         }
@@ -120,6 +133,8 @@ struct LengthConverter {
             return convertKilometersToMillimeters(value)
         case Length.centimeters.fullName:
             return convertKilometersToCentimeters(value)
+        case Length.yards.fullName:
+            return convertKilometersToYards(value)
         default:
             return ""
         }
@@ -143,6 +158,9 @@ struct LengthConverter {
             return convertNanometersToMillimeters(value)
         case Length.centimeters.fullName:
             return convertNanometersToCentimeters(value)
+        case Length.yards.fullName:
+            return convertNanometersToYards(value)
+            
         default:
             return ""
         }
@@ -166,6 +184,8 @@ struct LengthConverter {
             return convertMicrometersToMillimeters(value)
         case Length.centimeters.fullName:
             return convertMicrometersToCentimeters(value)
+        case Length.yards.fullName:
+            return convertMicrometersToYards(value)
         default:
             return ""
         }
@@ -189,6 +209,8 @@ struct LengthConverter {
             return value
         case Length.centimeters.fullName:
             return convertMillimetersToCentimeters(value)
+        case Length.yards.fullName:
+            return convertMillimetersToYards(value)
         default:
             return ""
         }
@@ -211,6 +233,34 @@ struct LengthConverter {
         case Length.millimeters.fullName:
             return convertCentimetersToMillimeters(value)
         case Length.centimeters.fullName:
+            return value
+        case Length.yards.fullName:
+            return convertCentimetersToYards(value)
+            
+        default:
+            return ""
+        }
+    }
+    
+    static private func convertYardsToB(_ typeB: String, _ value: String) -> String{
+        switch typeB {
+        case Length.meters.fullName:
+            return convertYardsToMeters(value)
+        case Length.feet.fullName:
+            return convertYardsToFeet(value)
+        case Length.inches.fullName:
+            return convertYardsToInches(value)
+        case Length.kilometers.fullName:
+            return convertYardsToKilometers(value)
+        case Length.nanometers.fullName:
+            return convertYardsToNanometers(value)
+        case Length.micrometers.fullName:
+            return convertYardsToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertYardsToMillimeters(value)
+        case Length.centimeters.fullName:
+            return convertYardsToCentimeters(value)
+        case Length.yards.fullName:
             return value
             
         default:
@@ -257,6 +307,10 @@ struct LengthConverter {
         return multiplyValue(value, multiplier: 0.01)
     }
     
+    static private func convertYardsToMeters(_ value : String) -> String{
+        return convertFeetToMeters(convertYardsToFeet(value))
+    }
+    
     static private func convertKilometersToFeet(_ value : String) -> String{
         return convertMetersToFeet(convertKilometersToMeters(value))
     }
@@ -283,6 +337,10 @@ struct LengthConverter {
     
     static private func convertCentimetersToFeet(_ value : String) -> String{
         return convertMetersToFeet(convertCentimetersToMeters(value))
+    }
+    
+    static private func convertYardsToFeet(_ value : String) -> String{
+        return multiplyValue(value, multiplier: (3.0))
     }
     
     static private func convertMetersToInches(_ value : String) -> String{
@@ -313,6 +371,10 @@ struct LengthConverter {
         return convertMetersToInches(convertCentimetersToMeters(value))
     }
     
+    static private func convertYardsToInches(_ value : String) -> String{
+        return convertMetersToInches(convertYardsToMeters(value))
+    }
+    
     static private func convertMetersToKilometers(_ value : String) -> String{
         return multiplyValue(value, multiplier: 0.001)
     }
@@ -339,6 +401,10 @@ struct LengthConverter {
     
     static private func convertCentimetersToKilometers(_ value : String) -> String{
         return convertMetersToKilometers(convertCentimetersToMeters(value))
+    }
+    
+    static private func convertYardsToKilometers(_ value : String) -> String{
+        return convertMetersToKilometers(convertYardsToMeters(value))
     }
     
     static private func convertMetersToNanometers(_ value : String) -> String{
@@ -369,6 +435,10 @@ struct LengthConverter {
         return convertMetersToNanometers(convertCentimetersToMeters(value))
     }
     
+    static private func convertYardsToNanometers(_ value : String) -> String{
+        return convertMetersToNanometers(convertYardsToMeters(value))
+    }
+    
     static private func convertMetersToMicrometers(_ value : String) -> String{
         return multiplyValue(value, multiplier: 1000000.0)
     }
@@ -397,6 +467,10 @@ struct LengthConverter {
         return convertMetersToMicrometers(convertCentimetersToMeters(value))
     }
     
+    static private func convertYardsToMicrometers(_ value : String) -> String{
+        return convertMetersToMicrometers(convertYardsToMeters(value))
+    }
+
     static private func convertMetersToMillimeters(_ value : String) -> String{
         return multiplyValue(value, multiplier: 1000.0)
     }
@@ -423,6 +497,10 @@ struct LengthConverter {
     
     static private func convertCentimetersToMillimeters(_ value : String) -> String{
         return convertMetersToMillimeters(convertCentimetersToMeters(value))
+    }
+    
+    static private func convertYardsToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertYardsToMeters(value))
     }
     
     static private func convertMetersToCentimeters(_ value : String) -> String{
@@ -452,4 +530,42 @@ struct LengthConverter {
     static private func convertMillimetersToCentimeters(_ value : String) -> String{
         return convertMetersToCentimeters(convertMillimetersToMeters(value))
     }
+    
+    static private func convertYardsToCentimeters(_ value : String) -> String{
+        return convertMetersToCentimeters(convertYardsToMeters(value))
+    }
+    
+    static private func convertMetersToYards(_ value : String) -> String{
+        return convertFeetToYards(convertMetersToFeet(value))
+    }
+    
+    static private func convertFeetToYards(_ value : String) -> String{
+        return multiplyValue(value, multiplier: (1.0/3.0))
+    }
+    
+    static private func convertInchesToYards(_ value : String) -> String{
+        return convertFeetToYards(convertInchesToFeet(value))
+    }
+    
+    static private func convertKilometersToYards(_ value : String) -> String{
+        return convertMetersToYards(convertKilometersToMeters(value))
+    }
+    
+    static private func convertNanometersToYards(_ value : String) -> String{
+        return convertMetersToYards(convertNanometersToMeters(value))
+    }
+    
+    static private func convertMicrometersToYards(_ value : String) -> String{
+        return convertMetersToYards(convertMicrometersToMeters(value))
+    }
+    
+    static private func convertMillimetersToYards(_ value : String) -> String{
+        return convertMetersToYards(convertMillimetersToMeters(value))
+    }
+    
+    static private func convertCentimetersToYards(_ value : String) -> String{
+        return convertMetersToYards(convertCentimetersToMeters(value))
+    }
+    
+    
 }

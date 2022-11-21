@@ -13,9 +13,9 @@ struct ContentView: View {
     @State private var selectedUnitType = Units.allCases[0].type
     
     @State private var selectIndexA : Int = 4
-    @State private var selectIndexB : Int = 6
+    @State private var selectIndexB : Int = 7
     @State private var unitA : String = Length.allCases[4].fullName
-    @State private var unitB : String = Length.allCases[6].fullName
+    @State private var unitB : String = Length.allCases[7].fullName
     @State private var inputA : String = ""
     @State private var inputB : String = ""
     
@@ -56,20 +56,34 @@ struct ContentView: View {
         }
         
         
-        NumberFieldView(name: $unitA, input: $inputA, charLimit: 18)
-            .font(Font.custom("SourceCodePro-Regular", size: 18))
-            .textFieldStyle(.roundedBorder)
-            .padding(.horizontal)
-            .onChange(of: inputA, perform: { _ in
-                inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
-            })
+        VStack{
+            HStack{
+                Spacer()
+                Text(unitA)
+                    .font(Font.custom("SourceCodePro-Regular", size: 12))
+                
+            }
+            NumberFieldView(name: $unitA, input: $inputA, charLimit: 18)
+                .textFieldStyle(.roundedBorder)
+                .onChange(of: inputA, perform: { _ in
+                    inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
+                })
+        }
+        .padding(.horizontal)
         
-        NumberFieldView(name: $unitB, input: $inputB, charLimit: 25)
-            .font(Font.custom("SourceCodePro-Regular", size: 18))
-            .textFieldStyle(.roundedBorder)
-            .padding(.horizontal)
-            .disabled(true)
-            
+        VStack{
+            NumberFieldView(name: $unitB, input: $inputB, charLimit: 25)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
+            HStack{
+                Spacer()
+                Text(unitB)
+                    .font(Font.custom("SourceCodePro-Regular", size: 12))
+                
+            }
+        }
+        .padding(.horizontal)
+        
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<Length.allCases.count, id: \.self){ i in
                 let unitType = Length.allCases[i]

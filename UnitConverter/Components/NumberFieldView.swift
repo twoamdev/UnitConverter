@@ -14,21 +14,15 @@ struct NumberFieldView: View {
     @State private var prevInput : String = ""
     
     var body: some View {
-        TextField(name, text: $input)
-            .keyboardType(.decimalPad)
-            .onChange(of: input, perform: { newInput in
-                /*
-                let maxDigitLength = "30"
-                let maxDecimalLength = "20"
-                
-                let regEx = "^[0-9]{0,\(maxDigitLength)}(\\.[0-9]{0,\(maxDecimalLength)})?$"
-                let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
-                let isValidInput = newInput == "." ? false : pred.evaluate(with: newInput)
-                 */
-                let isValidInput = newInput.count <= charLimit ? true : false
-                
-                input = !isValidInput ? prevInput : newInput
-                prevInput = input
-            })
+        VStack{
+            TextField(name, text: $input)
+                .font(Font.custom("SourceCodePro-Regular", size: 18))
+                .keyboardType(.decimalPad)
+                .onChange(of: input, perform: { newInput in
+                    let isValidInput = newInput.count <= charLimit ? true : false
+                    input = !isValidInput ? prevInput : newInput
+                    prevInput = input
+                })
+        }
     }
 }
