@@ -10,6 +10,7 @@ import SwiftUI
 struct NumberFieldView: View {
     @Binding var name: String
     @Binding var input: String
+    @State var charLimit : Int
     @State private var prevInput : String = ""
     
     var body: some View {
@@ -24,8 +25,7 @@ struct NumberFieldView: View {
                 let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
                 let isValidInput = newInput == "." ? false : pred.evaluate(with: newInput)
                  */
-                let characterLimit = 18
-                let isValidInput = newInput.count <= characterLimit ? true : false
+                let isValidInput = newInput.count <= charLimit ? true : false
                 
                 input = !isValidInput ? prevInput : newInput
                 prevInput = input

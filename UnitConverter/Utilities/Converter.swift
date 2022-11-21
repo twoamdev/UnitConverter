@@ -13,20 +13,16 @@ struct Converter {
         
         switch units {
         case Units.length.type:
-            print("units are length")
             let lengthConversion = LengthConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: lengthConversion)
             
         default:
             return "0"
-        }
-        
-        
+        } 
     }
     
     static private func convertedValue(value : String) -> String{
         if let numValue = Double(value){
-            
             let roundedStringValue = roundValue(value: numValue, precision: 4)
             return roundedStringValue
         }
@@ -37,9 +33,15 @@ struct Converter {
     
     static private func roundValue(value : Double, precision : Int) -> String{
         let precisionValue : Double = calculatePrecisionValue(precision)
-        let roundedValue = round(value * precisionValue) / precisionValue
-        let roundedStringValue =  roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
-        return roundedStringValue
+        
+        if value < 1.0 {
+            return String(value)
+        }
+        else{
+            let roundedValue = round(value * precisionValue) / precisionValue
+            let roundedStringValue =  roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
+            return roundedStringValue
+        }
     }
     
     static private func calculatePrecisionValue(_ precision : Int) -> Double{

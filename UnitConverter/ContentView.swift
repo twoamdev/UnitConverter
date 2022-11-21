@@ -11,12 +11,14 @@ import Combine
 struct ContentView: View {
     
     @State private var selectedUnitType = Units.allCases[0].type
-    @State private var unitA : String = Length.allCases[0].fullName
-    @State private var unitB : String = Length.allCases[2].fullName
+    
+    @State private var selectIndexA : Int = 4
+    @State private var selectIndexB : Int = 6
+    @State private var unitA : String = Length.allCases[4].fullName
+    @State private var unitB : String = Length.allCases[6].fullName
     @State private var inputA : String = ""
     @State private var inputB : String = ""
-    @State private var selectIndexA : Int = 0
-    @State private var selectIndexB : Int = 2
+    
     
     func swapUnitALabel(_ unitLabelName : String){
         unitA = unitLabelName
@@ -54,7 +56,7 @@ struct ContentView: View {
         }
         
         
-        NumberFieldView(name: $unitA, input: $inputA)
+        NumberFieldView(name: $unitA, input: $inputA, charLimit: 18)
             .font(Font.custom("SourceCodePro-Regular", size: 18))
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal)
@@ -62,7 +64,7 @@ struct ContentView: View {
                 inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
             })
         
-        NumberFieldView(name: $unitB, input: $inputB)
+        NumberFieldView(name: $unitB, input: $inputB, charLimit: 25)
             .font(Font.custom("SourceCodePro-Regular", size: 18))
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal)
