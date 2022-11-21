@@ -23,6 +23,8 @@ struct LengthConverter {
             return convertNanometersToB(typeB,value)
         case Length.micrometers.fullName:
             return convertMicrometersToB(typeB,value)
+        case Length.millimeters.fullName:
+            return convertMillimetersToB(typeB,value)
         
         default:
             return ""
@@ -43,6 +45,8 @@ struct LengthConverter {
             return convertMetersToNanometers(value)
         case Length.micrometers.fullName:
             return convertMetersToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertMetersToMillimeters(value)
         default:
             return ""
         }
@@ -62,6 +66,8 @@ struct LengthConverter {
             return convertFeetToNanometers(value)
         case Length.micrometers.fullName:
             return convertFeetToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertFeetToMillimeters(value)
         default:
             return ""
         }
@@ -81,6 +87,8 @@ struct LengthConverter {
             return convertInchesToNanometers(value)
         case Length.micrometers.fullName:
             return convertInchesToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertInchesToMillimeters(value)
         default:
             return ""
         }
@@ -100,6 +108,8 @@ struct LengthConverter {
             return convertKilometersToNanometers(value)
         case Length.micrometers.fullName:
             return convertKilometersToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertKilometersToMillimeters(value)
         default:
             return ""
         }
@@ -119,6 +129,8 @@ struct LengthConverter {
             return value
         case Length.micrometers.fullName:
             return convertNanometersToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertNanometersToMillimeters(value)
         default:
             return ""
         }
@@ -137,6 +149,29 @@ struct LengthConverter {
         case Length.nanometers.fullName:
             return convertMicrometersToNanometers(value)
         case Length.micrometers.fullName:
+            return value
+        case Length.millimeters.fullName:
+            return convertMicrometersToMillimeters(value)
+        default:
+            return ""
+        }
+    }
+    
+    static private func convertMillimetersToB(_ typeB: String, _ value: String) -> String{
+        switch typeB {
+        case Length.meters.fullName:
+            return convertMillimetersToMeters(value)
+        case Length.feet.fullName:
+            return convertMillimetersToFeet(value)
+        case Length.inches.fullName:
+            return convertMillimetersToInches(value)
+        case Length.kilometers.fullName:
+            return convertMillimetersToKilometers(value)
+        case Length.nanometers.fullName:
+            return convertMillimetersToNanometers(value)
+        case Length.micrometers.fullName:
+            return convertMillimetersToMicrometers(value)
+        case Length.millimeters.fullName:
             return value
         default:
             return ""
@@ -190,6 +225,16 @@ struct LengthConverter {
         }
     }
     
+    static private func convertMillimetersToMeters(_ value : String) -> String{
+        if let numValue = Double(value){
+            let convertedValue = numValue * 0.001
+            return String(convertedValue)
+        }
+        else{
+            return ""
+        }
+    }
+    
     static private func convertKilometersToFeet(_ value : String) -> String{
         return convertMetersToFeet(convertKilometersToMeters(value))
     }
@@ -223,6 +268,10 @@ struct LengthConverter {
         return convertMetersToFeet(convertMicrometersToMeters(value))
     }
     
+    static private func convertMillimetersToFeet(_ value : String) -> String{
+        return convertMetersToFeet(convertMillimetersToMeters(value))
+    }
+    
     static private func convertMetersToInches(_ value : String) -> String{
         let feet = convertMetersToFeet(value)
         if let feetValue = Double(feet){
@@ -248,6 +297,10 @@ struct LengthConverter {
     
     static private func convertMicrometersToInches(_ value : String) -> String{
         return convertMetersToInches(convertMicrometersToMeters(value))
+    }
+    
+    static private func convertMillimetersToInches(_ value : String) -> String{
+        return convertMetersToInches(convertMillimetersToMeters(value))
     }
     
     static private func convertMetersToKilometers(_ value : String) -> String{
@@ -277,6 +330,10 @@ struct LengthConverter {
         return convertMetersToKilometers(convertMicrometersToMeters(value))
     }
     
+    static private func convertMillimetersToKilometers(_ value : String) -> String{
+        return convertMetersToKilometers(convertMillimetersToMeters(value))
+    }
+    
     static private func convertMetersToNanometers(_ value : String) -> String{
         if let numValue = Double(value){
             let convertValue = numValue * 1000000000.0
@@ -303,6 +360,10 @@ struct LengthConverter {
         return convertMetersToNanometers(convertMicrometersToMeters(value))
     }
     
+    static private func convertMillimetersToNanometers(_ value : String) -> String{
+        return convertMetersToNanometers(convertMillimetersToMeters(value))
+    }
+    
     static private func convertMetersToMicrometers(_ value : String) -> String{
         if let numValue = Double(value){
             let convertValue = numValue * 1000000.0
@@ -327,5 +388,39 @@ struct LengthConverter {
     
     static private func convertNanometersToMicrometers(_ value : String) -> String{
         return convertMetersToMicrometers(convertNanometersToMeters(value))
+    }
+    
+    static private func convertMillimetersToMicrometers(_ value : String) -> String{
+        return convertMetersToMicrometers(convertMillimetersToMeters(value))
+    }
+    
+    static private func convertMetersToMillimeters(_ value : String) -> String{
+        if let numValue = Double(value){
+            let convertValue = numValue * 1000.0
+            return String(convertValue)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    static private func convertFeetToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertFeetToMeters(value))
+    }
+    
+    static private func convertInchesToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertInchesToMeters(value))
+    }
+    
+    static private func convertKilometersToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertKilometersToMeters(value))
+    }
+    
+    static private func convertNanometersToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertNanometersToMeters(value))
+    }
+    
+    static private func convertMicrometersToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertMicrometersToMeters(value))
     }
 }
