@@ -31,10 +31,8 @@ struct LengthConverter {
             return convertYardsToB(typeB,value)
         case Length.miles.fullName:
             return convertMilesToB(typeB,value)
-            /*
         case Length.nauticalMiles.fullName:
-            return convertNauticalMilesToB(typeB,value)*/
-        
+            return convertNauticalMilesToB(typeB,value)
         default:
             return ""
         }
@@ -62,6 +60,8 @@ struct LengthConverter {
             return convertMetersToYards(value)
         case Length.miles.fullName:
             return convertMetersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertMetersToNauticalMiles(value)
         default:
             return ""
         }
@@ -89,6 +89,8 @@ struct LengthConverter {
             return convertFeetToYards(value)
         case Length.miles.fullName:
             return convertFeetToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertFeetToNauticalMiles(value)
             
         default:
             return ""
@@ -117,6 +119,8 @@ struct LengthConverter {
             return convertInchesToYards(value)
         case Length.miles.fullName:
             return convertInchesToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertInchesToNauticalMiles(value)
         default:
             return ""
         }
@@ -144,6 +148,8 @@ struct LengthConverter {
             return convertKilometersToYards(value)
         case Length.miles.fullName:
             return convertKilometersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertKilometersToNauticalMiles(value)
         default:
             return ""
         }
@@ -171,6 +177,8 @@ struct LengthConverter {
             return convertNanometersToYards(value)
         case Length.miles.fullName:
             return convertNanometersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertNanometersToNauticalMiles(value)
             
         default:
             return ""
@@ -199,6 +207,8 @@ struct LengthConverter {
             return convertMicrometersToYards(value)
         case Length.miles.fullName:
             return convertMicrometersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertMicrometersToNauticalMiles(value)
         default:
             return ""
         }
@@ -226,6 +236,8 @@ struct LengthConverter {
             return convertMillimetersToYards(value)
         case Length.miles.fullName:
             return convertMillimetersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertMillimetersToNauticalMiles(value)
         default:
             return ""
         }
@@ -253,6 +265,8 @@ struct LengthConverter {
             return convertCentimetersToYards(value)
         case Length.miles.fullName:
             return convertCentimetersToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertCentimetersToNauticalMiles(value)
             
         default:
             return ""
@@ -281,6 +295,8 @@ struct LengthConverter {
             return value
         case Length.miles.fullName:
             return convertYardsToMiles(value)
+        case Length.nauticalMiles.fullName:
+            return convertYardsToNauticalMiles(value)
             
         default:
             return ""
@@ -308,6 +324,38 @@ struct LengthConverter {
         case Length.yards.fullName:
             return convertMilesToYards(value)
         case Length.miles.fullName:
+            return value
+        case Length.nauticalMiles.fullName:
+            return convertMilesToNauticalMiles(value)
+            
+        default:
+            return ""
+        }
+    }
+    
+    static private func convertNauticalMilesToB(_ typeB: String, _ value: String) -> String{
+        switch typeB {
+        case Length.meters.fullName:
+            return convertNauticalMilesToMeters(value)
+        case Length.feet.fullName:
+            return convertNauticalMilesToFeet(value)
+        case Length.inches.fullName:
+            return convertNauticalMilesToInches(value)
+        case Length.kilometers.fullName:
+            return convertNauticalMilesToKilometers(value)
+        case Length.nanometers.fullName:
+            return convertNauticalMilesToNanometers(value)
+        case Length.micrometers.fullName:
+            return convertNauticalMilesToMicrometers(value)
+        case Length.millimeters.fullName:
+            return convertNauticalMilesToMillimeters(value)
+        case Length.centimeters.fullName:
+            return convertNauticalMilesToCentimeters(value)
+        case Length.yards.fullName:
+            return convertNauticalMilesToYards(value)
+        case Length.miles.fullName:
+            return convertNauticalMilesToMiles(value)
+        case Length.nauticalMiles.fullName:
             return value
             
         default:
@@ -362,6 +410,10 @@ struct LengthConverter {
         return convertFeetToMeters(convertMilesToFeet(value))
     }
     
+    static private func convertNauticalMilesToMeters(_ value : String) -> String{
+        return multiplyValue(value, multiplier: 1852.0)
+    }
+    
     static private func convertKilometersToFeet(_ value : String) -> String{
         return convertMetersToFeet(convertKilometersToMeters(value))
     }
@@ -396,6 +448,10 @@ struct LengthConverter {
     
     static private func convertMilesToFeet(_ value : String) -> String{
         return multiplyValue(value, multiplier: (5280.0))
+    }
+    
+    static private func convertNauticalMilesToFeet(_ value : String) -> String{
+        return convertMetersToFeet(convertNauticalMilesToMeters(value))
     }
     
     static private func convertMetersToInches(_ value : String) -> String{
@@ -434,6 +490,10 @@ struct LengthConverter {
         return convertFeetToInches(convertMilesToFeet(value))
     }
     
+    static private func convertNauticalMilesToInches(_ value : String) -> String{
+        return convertFeetToInches(convertNauticalMilesToFeet(value))
+    }
+    
     static private func convertMetersToKilometers(_ value : String) -> String{
         return multiplyValue(value, multiplier: 0.001)
     }
@@ -468,6 +528,10 @@ struct LengthConverter {
     
     static private func convertMilesToKilometers(_ value : String) -> String{
         return convertMetersToKilometers(convertMilesToMeters(value))
+    }
+    
+    static private func convertNauticalMilesToKilometers(_ value : String) -> String{
+        return convertMetersToKilometers(convertNauticalMilesToMeters(value))
     }
     
     static private func convertMetersToNanometers(_ value : String) -> String{
@@ -506,6 +570,10 @@ struct LengthConverter {
         return convertMetersToNanometers(convertMilesToMeters(value))
     }
     
+    static private func convertNauticalMilesToNanometers(_ value : String) -> String{
+        return convertMetersToNanometers(convertNauticalMilesToMeters(value))
+    }
+    
     static private func convertMetersToMicrometers(_ value : String) -> String{
         return multiplyValue(value, multiplier: 1000000.0)
     }
@@ -540,6 +608,10 @@ struct LengthConverter {
     
     static private func convertMilesToMicrometers(_ value : String) -> String{
         return convertMetersToMicrometers(convertMilesToMeters(value))
+    }
+    
+    static private func convertNauticalMilesToMicrometers(_ value : String) -> String{
+        return convertMetersToMicrometers(convertNauticalMilesToMeters(value))
     }
 
     static private func convertMetersToMillimeters(_ value : String) -> String{
@@ -578,6 +650,10 @@ struct LengthConverter {
         return convertMetersToMillimeters(convertMilesToMeters(value))
     }
     
+    static private func convertNauticalMilesToMillimeters(_ value : String) -> String{
+        return convertMetersToMillimeters(convertNauticalMilesToMeters(value))
+    }
+    
     static private func convertMetersToCentimeters(_ value : String) -> String{
         return multiplyValue(value, multiplier: 100.0)
     }
@@ -612,6 +688,10 @@ struct LengthConverter {
     
     static private func convertMilesToCentimeters(_ value : String) -> String{
         return convertMetersToCentimeters(convertMilesToMeters(value))
+    }
+    
+    static private func convertNauticalMilesToCentimeters(_ value : String) -> String{
+        return convertMetersToCentimeters(convertNauticalMilesToMeters(value))
     }
     
     static private func convertMetersToYards(_ value : String) -> String{
@@ -650,7 +730,9 @@ struct LengthConverter {
         return convertFeetToYards(convertMilesToFeet(value))
     }
     
-    
+    static private func convertNauticalMilesToYards(_ value : String) -> String{
+        return convertFeetToYards(convertNauticalMilesToFeet(value))
+    }
     
     static private func convertMetersToMiles(_ value : String) -> String{
         return convertFeetToMiles(convertMetersToFeet(value))
@@ -686,6 +768,50 @@ struct LengthConverter {
     
     static private func convertYardsToMiles(_ value : String) -> String{
         return convertFeetToMiles(convertYardsToFeet(value))
+    }
+    
+    static private func convertNauticalMilesToMiles(_ value : String) -> String{
+        return convertFeetToMiles(convertNauticalMilesToFeet(value))
+    }
+    
+    static private func convertMetersToNauticalMiles(_ value : String) -> String{
+        return multiplyValue(value, multiplier: (1.0/1852.0))
+    }
+    
+    static private func convertFeetToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertFeetToMeters(value))
+    }
+    
+    static private func convertInchesToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertInchesToMeters(value))
+    }
+    
+    static private func convertKilometersToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertKilometersToMeters(value))
+    }
+    
+    static private func convertNanometersToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertNanometersToMeters(value))
+    }
+    
+    static private func convertMicrometersToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertMicrometersToMeters(value))
+    }
+    
+    static private func convertMillimetersToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertMillimetersToMeters(value))
+    }
+    
+    static private func convertCentimetersToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertCentimetersToMeters(value))
+    }
+    
+    static private func convertYardsToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertYardsToMeters(value))
+    }
+    
+    static private func convertMilesToNauticalMiles(_ value : String) -> String{
+        return convertMetersToNauticalMiles(convertMilesToMeters(value))
     }
     
     
