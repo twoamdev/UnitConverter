@@ -32,7 +32,10 @@ struct ContentView: View {
             Text(selectedUnitType)
                 .font(Font.custom("SourceCodePro-Regular", size: 22))
         }
-        HStack {
+        let columns = [
+                GridItem(.adaptive(minimum: 80))
+            ]
+        LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<Length.allCases.count, id: \.self){ i in
                 let unitType = Length.allCases[i]
                 Button(action: {
@@ -46,16 +49,16 @@ struct ContentView: View {
                         inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
                     })
             }
+            .buttonStyle(.bordered)
+            .font(Font.custom("SourceCodePro-Regular", size: 18))
         }
-        .buttonStyle(.bordered)
-        .font(Font.custom("SourceCodePro-Regular", size: 18))
+        
         
         NumberFieldView(name: $unitA, input: $inputA)
             .font(Font.custom("SourceCodePro-Regular", size: 18))
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal)
             .onChange(of: inputA, perform: { _ in
-                print("incoming: \(inputA) ---")
                 inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
             })
         
@@ -65,7 +68,7 @@ struct ContentView: View {
             .padding(.horizontal)
             .disabled(true)
             
-        HStack {
+        LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<Length.allCases.count, id: \.self){ i in
                 let unitType = Length.allCases[i]
                 Button(action: {
@@ -79,10 +82,11 @@ struct ContentView: View {
                         inputB = Converter.convertAtoB(units: selectedUnitType ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
                     })
             }
+            .buttonStyle(.bordered)
+            .font(Font.custom("SourceCodePro-Regular", size: 18))
             
         }
-        .buttonStyle(.bordered)
-        .font(Font.custom("SourceCodePro-Regular", size: 18))
+        
             
     }
 }
