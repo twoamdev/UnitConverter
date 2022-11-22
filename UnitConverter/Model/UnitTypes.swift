@@ -9,71 +9,15 @@ import Foundation
 
 
 enum Units : CaseIterable {
-    case length
+    case length, temperature
     
     var type : String {
         switch self{
         case .length:
             return "length"
+        case .temperature:
+            return "temperature"
         }
     }
 }
 
-enum Length : CaseIterable{
-    
-    case nanometers, micrometers, millimeters, centimeters, meters, kilometers,
-         inches, feet, yards, miles, nauticalMiles
-    
-    var abbreviation: String {
-        switch self {
-        case .meters:
-            return "m"
-        case .kilometers:
-            return "km"
-        case .inches:
-            return "in"
-        case .feet:
-            return "ft"
-        case .nanometers:
-            return "nm"
-        case .micrometers:
-            return "um"
-        case .millimeters:
-            return "mm"
-        case .centimeters:
-            return "cm"
-        case .yards:
-            return "yd"
-        case .miles:
-            return "mi"
-        case .nauticalMiles:
-            return "NM"
-        }
-    }
-    var fullName: String {
-        switch self {
-        case .meters:
-            return "meters"
-        case .kilometers:
-            return "kilometers"
-        case .inches:
-            return "inches"
-        case .feet:
-            return "feet"
-        case .nanometers:
-            return "nanometers"
-        case .micrometers:
-            return "micrometers"
-        case .millimeters:
-            return "millimeters"
-        case .centimeters:
-            return "centimeters"
-        case .yards:
-            return "yards"
-        case .miles:
-            return "miles"
-        case .nauticalMiles:
-            return "nautical miles"
-        }
-    }
-}

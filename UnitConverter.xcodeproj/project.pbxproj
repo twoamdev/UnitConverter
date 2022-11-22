@@ -23,6 +23,8 @@
 		9C87FD0A292911AB004B107E /* UnitTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD09292911AB004B107E /* UnitTypes.swift */; };
 		9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD0E29296BA3004B107E /* LengthConverter.swift */; };
 		9C87FD1129296BCA004B107E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD1029296BCA004B107E /* Converter.swift */; };
+		9C87FD15292D9173004B107E /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD14292D9173004B107E /* Temperature.swift */; };
+		9C87FD17292D926D004B107E /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD16292D926D004B107E /* Length.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		9C87FD09292911AB004B107E /* UnitTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypes.swift; sourceTree = "<group>"; };
 		9C87FD0E29296BA3004B107E /* LengthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConverter.swift; sourceTree = "<group>"; };
 		9C87FD1029296BCA004B107E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		9C87FD14292D9173004B107E /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		9C87FD16292D926D004B107E /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				9C87FD09292911AB004B107E /* UnitTypes.swift */,
+				9C87FD14292D9173004B107E /* Temperature.swift */,
+				9C87FD16292D926D004B107E /* Length.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
+				9C87FD17292D926D004B107E /* Length.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
+				9C87FD15292D9173004B107E /* Temperature.swift in Sources */,
 				9C87FD1129296BCA004B107E /* Converter.swift in Sources */,
 				9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */,
 				9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */,
