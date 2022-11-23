@@ -25,6 +25,7 @@
 		9C87FD1129296BCA004B107E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD1029296BCA004B107E /* Converter.swift */; };
 		9C87FD15292D9173004B107E /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD14292D9173004B107E /* Temperature.swift */; };
 		9C87FD17292D926D004B107E /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD16292D926D004B107E /* Length.swift */; };
+		9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD18292D945E004B107E /* UnitSwitcherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		9C87FD1029296BCA004B107E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		9C87FD14292D9173004B107E /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		9C87FD16292D926D004B107E /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
+		9C87FD18292D945E004B107E /* UnitSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSwitcherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +82,13 @@
 		9C87FCCD291DD729004B107E /* UnitConverter */ = {
 			isa = PBXGroup;
 			children = (
+				9C87FCCE291DD729004B107E /* UnitConverterApp.swift */,
 				9C87FD0B29295369004B107E /* Utilities */,
 				9C87FD0829291184004B107E /* Model */,
 				9C87FCDF292802D8004B107E /* Fonts */,
 				9C87FCDC2927FC3C004B107E /* Components */,
-				9C87FCCE291DD729004B107E /* UnitConverterApp.swift */,
 				9C87FCD0291DD729004B107E /* ContentView.swift */,
+				9C87FD18292D945E004B107E /* UnitSwitcherView.swift */,
 				9C87FCD2291DD72B004B107E /* Assets.xcassets */,
 				9C87FCD4291DD72B004B107E /* Preview Content */,
 				9C87FCF829285DDA004B107E /* Info.plist */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */,
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
 				9C87FD17292D926D004B107E /* Length.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
