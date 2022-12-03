@@ -9,21 +9,26 @@ import SwiftUI
 
 struct UnitSwitcherView: View {
     
+    @Binding var units : [UnitGroup]
     @Binding var unitTypeIndex : Int
+    @Binding var userInput : String
     
     var body: some View {
         VStack{
             List{
-                ForEach(0..<Units.allCases.count, id: \.self){ i in
-                    let unit = Units.allCases[i]
+                ForEach(0..<units.count, id: \.self){ i in
+                    let unit = units[i].getUnitType()
                     HStack{
-                        Text(unit.type)
+                        Text(unit)
                             .font(Font.custom("SourceCodePro-Regular", size: 22))
                         Spacer()
                         Image(systemName: i == unitTypeIndex ? "circle.fill" : "circle")
                             .fixedSize()
                     }
                     .onTapGesture {
+                        if unitTypeIndex != i{
+                            userInput = ""
+                        }
                         unitTypeIndex = i
                     }
                 }

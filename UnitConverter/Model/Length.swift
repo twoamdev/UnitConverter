@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum Length : CaseIterable{
+enum Length : CaseIterable, UnitProtocol{
     
     case nanometers, micrometers, millimeters, centimeters, meters, kilometers,
          inches, feet, yards, miles, nauticalMiles

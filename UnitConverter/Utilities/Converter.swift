@@ -12,12 +12,12 @@ struct Converter {
     static func convertAtoB(units: String, unitTypeA : String, unitTypeB : String, valueA : String) -> String{
         
         switch units {
-        case Units.length.type:
+        case UnitType.length.name:
             let lengthConversion = LengthConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: lengthConversion)
             
         default:
-            return "0"
+            return ""
         } 
     }
     

@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Temperature : CaseIterable{
+
+enum Temperature : CaseIterable, UnitProtocol{
     
     case fahrenheit, celsius, kelvin
     

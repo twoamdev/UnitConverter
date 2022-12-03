@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct UnitConverterApp: App {
+    @State private var units : [UnitGroup] = UnitUtils.initializeUnitGroups()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(units : units)
         }
     }
 }
