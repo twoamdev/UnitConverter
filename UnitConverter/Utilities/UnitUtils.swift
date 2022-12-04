@@ -23,5 +23,33 @@ struct UnitUtils{
         }
         return groups
     }
+    
+    static func bootUpIndices() -> BootUp {
+        let startUnitType = UnitType.length.name
+        let startValueA = Length.meters.fullName
+        let startValueB = Length.feet.fullName
+        let groups = initializeUnitGroups()
+        
+        var startIndex = 0
+        for group in groups {
+            if group.getUnitType() == startUnitType{
+                break
+            }
+            startIndex += 1
+        }
+        
+        var valueAIndex = 0
+        var valueBIndex = 0
+        for i in 0..<groups[startIndex].getMemberCount(){
+            let name = groups[startIndex].unitMemberFullName(index: i)
+            if name == startValueA{
+                valueAIndex = i
+            }
+            if name == startValueB{
+                valueBIndex = i
+            }
+        }
+        return BootUp(startIndex, valueAIndex, valueBIndex, startValueA, startValueB)
+    }
 
 }

@@ -11,23 +11,31 @@ import Combine
 struct ContentView: View {
     
     @State var units : [UnitGroup]
-    @State private var showUnitSwitcher : Bool = false
-    @State private var unitTypeIndex : Int = 0
-    @State private var selectIndexA : Int = 4
-    @State private var selectIndexB : Int = 7
+    @State var unitTypeIndex : Int
+    @State var valueIndexA : Int
+    @State var valueIndexB : Int
+    @State var unitValueA : String
+    @State var unitValueB : String
     
-    @State private var unitA : String = ""
-    @State private var unitB : String = ""
+    @State private var showUnitSwitcher : Bool = false
     @State private var inputA : String = ""
     @State private var inputB : String = ""
     
     
     func swapUnitALabel(_ unitLabelName : String){
-        unitA = unitLabelName
+        unitValueA = unitLabelName
     }
     
     func swapUnitBLabel(_ unitLabelName : String){
-        unitB = unitLabelName
+        unitValueB = unitLabelName
+    }
+    
+    func updateUnitValueLabels(){
+        //until predetermined implementaion is complete, just default to 0 and 1
+        unitValueA = units[unitTypeIndex].unitMemberFullName(index: 0)
+        unitValueB = units[unitTypeIndex].unitMemberFullName(index: 1)
+        valueIndexA = 0
+        valueIndexB = 1
     }
 
     var body: some View {
@@ -57,8 +65,15 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "gearshape.circle.fill")
                         .font(Font.system(.largeTitle))
-                }.sheet(isPresented: $showUnitSwitcher) {
-                    UnitSwitcherView(units: $units, unitTypeIndex: $unitTypeIndex, userInput: $inputA)
+                }.sheet(isPresented: $showUnitSwitcher, onDismiss: {
+                    updateUnitValueLabels()
+                }) {
+                    UnitSwitcherView(units: $units,
+                                     unitTypeIndex: $unitTypeIndex,
+                                     userInput: $inputA,
+                                     viewIsActive: $showUnitSwitcher
+                    )
+                        
                 }
             }
         }
@@ -71,14 +86,14 @@ struct ContentView: View {
                 ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
                     let unitGroup = units[unitTypeIndex]
                     Button(action: {
-                        self.selectIndexA = i
+                        self.valueIndexA = i
                         self.swapUnitALabel(unitGroup.unitMemberFullName(index: i))
                     },label: {
                         Text(unitGroup.unitMemberAbbreviation(index: i))
-                            .foregroundColor(self.selectIndexA == i ? Color.red : Color.blue)
+                            .foregroundColor(self.valueIndexA == i ? Color.red : Color.blue)
                     })
-                        .onChange(of: self.selectIndexA, perform: { _ in
-                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: selectIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: selectIndexB), valueA: inputA)
+                        .onChange(of: self.valueIndexA, perform: { _ in
+                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
                         })
                 }
                 .buttonStyle(.bordered)
@@ -92,25 +107,25 @@ struct ContentView: View {
             VStack{
                 HStack{
                     Spacer()
-                    Text(unitA)
+                    Text(unitValueA)
                         .font(Font.custom("SourceCodePro-Regular", size: 12))
                 }
             
-                NumberFieldView(name: $unitA, input: $inputA, charLimit: 18)
+                NumberFieldView(name: $unitValueA, input: $inputA, charLimit: 18)
                     .textFieldStyle(.roundedBorder)
                     .onChange(of: inputA, perform: { _ in
-                        inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: selectIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: selectIndexB), valueA: inputA)
+                        inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
                     })
             }
             .padding(.horizontal)
             
             VStack{
-                NumberFieldView(name: $unitB, input: $inputB, charLimit: 25)
+                NumberFieldView(name: $unitValueB, input: $inputB, charLimit: 25)
                     .textFieldStyle(.roundedBorder)
                     .disabled(true)
                 HStack{
                     Spacer()
-                    Text(unitB)
+                    Text(unitValueB)
                         .font(Font.custom("SourceCodePro-Regular", size: 12))
                 }
             }
@@ -126,14 +141,14 @@ struct ContentView: View {
                 ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
                     let unit = units[unitTypeIndex]
                     Button(action: {
-                        self.selectIndexB = i
+                        self.valueIndexB = i
                         self.swapUnitBLabel(unit.unitMemberFullName(index: i))
                     },label: {
                         Text(unit.unitMemberAbbreviation(index: i))
-                            .foregroundColor(self.selectIndexB == i ? Color.red : Color.blue)
+                            .foregroundColor(self.valueIndexB == i ? Color.red : Color.blue)
                     })
-                        .onChange(of: self.selectIndexB, perform: { _ in
-                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: unitA, unitTypeB: unitB, valueA: inputA)
+                        .onChange(of: self.valueIndexB, perform: { _ in
+                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: unitValueA, unitTypeB: unitValueB, valueA: inputA)
                         })
                 }
                 .buttonStyle(.bordered)
