@@ -15,10 +15,43 @@ struct Converter {
         case UnitType.length.name:
             let lengthConversion = LengthConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: lengthConversion)
+        case UnitType.temperature.name:
+            let temperatureConversion = TemperatureConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: temperatureConversion)
             
         default:
             return ""
         } 
+    }
+    
+    static func multiplyValue(_ value : String, multiplier : Double) -> String{
+        if let numValue = Double(value){
+            let convertedValue = numValue * multiplier
+            return String(convertedValue)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    static func subtractValue(_ value : String, subtractValue : Double) -> String{
+        if let numValue = Double(value){
+            let convertedValue = numValue - subtractValue
+            return String(convertedValue)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    static func addValue(_ value : String, addValue : Double) -> String{
+        if let numValue = Double(value){
+            let convertedValue = numValue + addValue
+            return String(convertedValue)
+        }
+        else{
+            return ""
+        }
     }
     
     static private func convertedValue(value : String) -> String{

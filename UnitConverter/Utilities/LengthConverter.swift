@@ -363,23 +363,12 @@ struct LengthConverter {
         }
     }
     
-    static private func multiplyValue(_ value : String, multiplier : Double) -> String{
-        if let numValue = Double(value){
-            let convertedValue = numValue * multiplier
-            return String(convertedValue)
-        }
-        else{
-            return ""
-        }
-    }
-    
-    
     static private func convertFeetToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.3048)
+        return Converter.multiplyValue(value, multiplier: 0.3048)
     }
     
     static private func convertKilometersToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 1000.0)
+        return Converter.multiplyValue(value, multiplier: 1000.0)
     }
     
     static private func convertInchesToMeters(_ value : String) -> String{
@@ -387,19 +376,19 @@ struct LengthConverter {
     }
     
     static private func convertNanometersToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.000000001)
+        return Converter.multiplyValue(value, multiplier: 0.000000001)
     }
     
     static private func convertMicrometersToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.000001)
+        return Converter.multiplyValue(value, multiplier: 0.000001)
     }
     
     static private func convertMillimetersToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.001)
+        return Converter.multiplyValue(value, multiplier: 0.001)
     }
     
     static private func convertCentimetersToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.01)
+        return Converter.multiplyValue(value, multiplier: 0.01)
     }
     
     static private func convertYardsToMeters(_ value : String) -> String{
@@ -411,7 +400,7 @@ struct LengthConverter {
     }
     
     static private func convertNauticalMilesToMeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 1852.0)
+        return Converter.multiplyValue(value, multiplier: 1852.0)
     }
     
     static private func convertKilometersToFeet(_ value : String) -> String{
@@ -419,11 +408,11 @@ struct LengthConverter {
     }
     
     static private func convertMetersToFeet(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 3.280839895)
+        return Converter.multiplyValue(value, multiplier: 3.280839895)
     }
     
     static private func convertInchesToFeet(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (1.0/12.0))
+        return Converter.multiplyValue(value, multiplier: (1.0/12.0))
     }
     
     static private func convertNanometersToFeet(_ value : String) -> String{
@@ -443,11 +432,11 @@ struct LengthConverter {
     }
     
     static private func convertYardsToFeet(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (3.0))
+        return Converter.multiplyValue(value, multiplier: (3.0))
     }
     
     static private func convertMilesToFeet(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (5280.0))
+        return Converter.multiplyValue(value, multiplier: (5280.0))
     }
     
     static private func convertNauticalMilesToFeet(_ value : String) -> String{
@@ -459,7 +448,7 @@ struct LengthConverter {
     }
     
     static private func convertFeetToInches(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 12.0)
+        return Converter.multiplyValue(value, multiplier: 12.0)
     }
     
     static private func convertKilometersToInches(_ value : String) -> String{
@@ -495,7 +484,7 @@ struct LengthConverter {
     }
     
     static private func convertMetersToKilometers(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 0.001)
+        return Converter.multiplyValue(value, multiplier: 0.001)
     }
     
     static private func convertFeetToKilometers(_ value : String) -> String{
@@ -535,7 +524,7 @@ struct LengthConverter {
     }
     
     static private func convertMetersToNanometers(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 1000000000.0)
+        return Converter.multiplyValue(value, multiplier: 1000000000.0)
     }
     
     static private func convertFeetToNanometers(_ value : String) -> String{
@@ -575,7 +564,7 @@ struct LengthConverter {
     }
     
     static private func convertMetersToMicrometers(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 1000000.0)
+        return Converter.multiplyValue(value, multiplier: 1000000.0)
     }
     
     static private func convertFeetToMicrometers(_ value : String) -> String{
@@ -615,7 +604,7 @@ struct LengthConverter {
     }
 
     static private func convertMetersToMillimeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 1000.0)
+        return Converter.multiplyValue(value, multiplier: 1000.0)
     }
     
     static private func convertFeetToMillimeters(_ value : String) -> String{
@@ -655,7 +644,7 @@ struct LengthConverter {
     }
     
     static private func convertMetersToCentimeters(_ value : String) -> String{
-        return multiplyValue(value, multiplier: 100.0)
+        return Converter.multiplyValue(value, multiplier: 100.0)
     }
     
     static private func convertFeetToCentimeters(_ value : String) -> String{
@@ -699,7 +688,7 @@ struct LengthConverter {
     }
     
     static private func convertFeetToYards(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (1.0/3.0))
+        return Converter.multiplyValue(value, multiplier: (1.0/3.0))
     }
     
     static private func convertInchesToYards(_ value : String) -> String{
@@ -739,7 +728,7 @@ struct LengthConverter {
     }
     
     static private func convertFeetToMiles(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (1.0/5280.0))
+        return Converter.multiplyValue(value, multiplier: (1.0/5280.0))
     }
     
     static private func convertInchesToMiles(_ value : String) -> String{
@@ -775,7 +764,7 @@ struct LengthConverter {
     }
     
     static private func convertMetersToNauticalMiles(_ value : String) -> String{
-        return multiplyValue(value, multiplier: (1.0/1852.0))
+        return Converter.multiplyValue(value, multiplier: (1.0/1852.0))
     }
     
     static private func convertFeetToNauticalMiles(_ value : String) -> String{

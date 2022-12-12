@@ -31,6 +31,7 @@
 		9C87FD23293A91A0004B107E /* UnitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD22293A91A0004B107E /* UnitProtocol.swift */; };
 		9C87FD25293BA1D1004B107E /* UnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD24293BA1D1004B107E /* UnitType.swift */; };
 		9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD26293C2EC5004B107E /* BootUp.swift */; };
+		9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD2829462F83004B107E /* TemperatureConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		9C87FD22293A91A0004B107E /* UnitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitProtocol.swift; sourceTree = "<group>"; };
 		9C87FD24293BA1D1004B107E /* UnitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitType.swift; sourceTree = "<group>"; };
 		9C87FD26293C2EC5004B107E /* BootUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootUp.swift; sourceTree = "<group>"; };
+		9C87FD2829462F83004B107E /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				9C87FD1029296BCA004B107E /* Converter.swift */,
 				9C87FD0E29296BA3004B107E /* LengthConverter.swift */,
 				9C87FD1E293A7C36004B107E /* UnitUtils.swift */,
+				9C87FD2829462F83004B107E /* TemperatureConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */,
 				9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */,
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
 				9C87FD17292D926D004B107E /* Length.swift in Sources */,
