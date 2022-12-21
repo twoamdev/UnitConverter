@@ -56,25 +56,42 @@ struct Converter {
     
     static private func convertedValue(value : String) -> String{
         if let numValue = Double(value){
-            let roundedStringValue = roundValue(value: numValue, precision: 4)
-            return roundedStringValue
+            return formatValue(value: numValue)
         }
         else{
             return value
         }
     }
     
-    static private func roundValue(value : Double, precision : Int) -> String{
-        let precisionValue : Double = calculatePrecisionValue(precision)
+    static private func formatValue(value : Double) -> String{
         
-        if value < 1.0 {
-            return String(value)
+        if !requireScientificNotation(value) {
+            let roundedValue = roundValue(value)
+            return roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
         }
-        else{
-            let roundedValue = round(value * precisionValue) / precisionValue
-            let roundedStringValue =  roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
-            return roundedStringValue
+        return String(value)
+    }
+    
+    static func roundValue(_ value : Double) -> Double{
+
+        //decide to which precision to return
+        let precision = 6
+        var defaultPrecision = round(value * calculatePrecisionValue(precision)) / calculatePrecisionValue(precision)
+        for i in 1...4 {
+            let higherPrecision = round(value * calculatePrecisionValue(precision + i)) / calculatePrecisionValue(precision + i)
+            if defaultPrecision == higherPrecision{
+                break
+            }
+            else{
+                defaultPrecision = higherPrecision
+            }
         }
+        return defaultPrecision
+    }
+    
+    static private func requireScientificNotation(_ value : Double) -> Bool {
+        let stringValue = String(value).lowercased()
+        return stringValue.contains("e") ? true : false
     }
     
     static private func calculatePrecisionValue(_ precision : Int) -> Double{

@@ -408,7 +408,8 @@ struct LengthConverter {
     }
     
     static private func convertMetersToFeet(_ value : String) -> String{
-        return Converter.multiplyValue(value, multiplier: 3.280839895)
+        return Converter.multiplyValue(value, multiplier: 1.0/0.3048)
+        //3.280839895
     }
     
     static private func convertInchesToFeet(_ value : String) -> String{
