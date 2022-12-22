@@ -9,7 +9,7 @@ import Foundation
 
 enum Speed : CaseIterable, UnitProtocol{
     
-    case milesPerHour, feetPerSecond
+    case milesPerHour, feetPerSecond, metersPerSecond, kilometersPerHour, knots
     
     var abbreviation: String {
         switch self {
@@ -17,6 +17,12 @@ enum Speed : CaseIterable, UnitProtocol{
             return "mph"
         case .feetPerSecond:
             return "fps"
+        case .metersPerSecond:
+            return "m/s"
+        case .kilometersPerHour:
+            return "km/h"
+        case .knots:
+            return "Kt"
         }
     }
     
@@ -26,6 +32,12 @@ enum Speed : CaseIterable, UnitProtocol{
             return "miles per hour"
         case .feetPerSecond:
             return "feet per second"
+        case .metersPerSecond:
+            return "meters per second"
+        case .kilometersPerHour:
+            return "kilometers per hour"
+        case .knots:
+            return "knots"
         }
     }
 }

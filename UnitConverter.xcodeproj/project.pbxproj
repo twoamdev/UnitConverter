@@ -209,8 +209,8 @@
 			children = (
 				9C87FD302949FD5A004B107E /* UnitConverterTests.swift */,
 				9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */,
-				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 				9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */,
+				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 			);
 			path = UnitConverterTests;
 			sourceTree = "<group>";
