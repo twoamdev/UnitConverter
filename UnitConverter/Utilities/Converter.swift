@@ -18,7 +18,12 @@ struct Converter {
         case UnitType.temperature.name:
             let temperatureConversion = TemperatureConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: temperatureConversion)
-            
+        case UnitType.speed.name:
+            let speedConversion = SpeedConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: speedConversion)
+        case UnitType.time.name:
+            let timeConversion = TimeConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: timeConversion)
         default:
             return ""
         } 
@@ -121,6 +126,5 @@ struct Converter {
             return 10.0
         }
     }
-    
     
 }

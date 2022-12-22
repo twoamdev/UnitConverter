@@ -10,7 +10,7 @@ import Foundation
 
 
 enum UnitType : CaseIterable{
-    case length, temperature
+    case length, temperature, speed, time
     
     var name : String {
         switch self{
@@ -18,6 +18,10 @@ enum UnitType : CaseIterable{
             return "length"
         case .temperature:
             return "temperature"
+        case .speed:
+            return "speed"
+        case .time:
+            return "time"
         }
     }
     
@@ -25,9 +29,12 @@ enum UnitType : CaseIterable{
         switch self{
         case .length:
             return self.getAbbreviationsAndNames(unitCases: Length.allCases)
-
         case .temperature:
             return self.getAbbreviationsAndNames(unitCases: Temperature.allCases)
+        case .speed:
+            return self.getAbbreviationsAndNames(unitCases: Speed.allCases)
+        case .time:
+            return self.getAbbreviationsAndNames(unitCases: Time.allCases)
         }
     }
     

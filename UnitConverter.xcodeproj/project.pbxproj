@@ -33,6 +33,13 @@
 		9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD26293C2EC5004B107E /* BootUp.swift */; };
 		9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD2829462F83004B107E /* TemperatureConverter.swift */; };
 		9C87FD312949FD5A004B107E /* UnitConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87FD302949FD5A004B107E /* UnitConverterTests.swift */; };
+		9CF391312954BF95000A7514 /* SpeedConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391302954BF95000A7514 /* SpeedConverter.swift */; };
+		9CF391352954C135000A7514 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391342954C135000A7514 /* Speed.swift */; };
+		9CF391372954CE96000A7514 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391362954CE96000A7514 /* TimeConverter.swift */; };
+		9CF391392954CED4000A7514 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391382954CED4000A7514 /* Time.swift */; };
+		9CF3913B2954D2B4000A7514 /* SpeedConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */; };
+		9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913C2954D3B3000A7514 /* TestUtils.swift */; };
+		9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,13 @@
 		9C87FD2829462F83004B107E /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		9C87FD2E2949FD5A004B107E /* UnitConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C87FD302949FD5A004B107E /* UnitConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterTests.swift; sourceTree = "<group>"; };
+		9CF391302954BF95000A7514 /* SpeedConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedConverter.swift; sourceTree = "<group>"; };
+		9CF391342954C135000A7514 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		9CF391362954CE96000A7514 /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		9CF391382954CED4000A7514 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedConverterTests.swift; sourceTree = "<group>"; };
+		9CF3913C2954D3B3000A7514 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +182,8 @@
 				9C87FD22293A91A0004B107E /* UnitProtocol.swift */,
 				9C87FD16292D926D004B107E /* Length.swift */,
 				9C87FD14292D9173004B107E /* Temperature.swift */,
+				9CF391342954C135000A7514 /* Speed.swift */,
+				9CF391382954CED4000A7514 /* Time.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
 				9C87FD26293C2EC5004B107E /* BootUp.swift */,
@@ -178,10 +194,12 @@
 		9C87FD0B29295369004B107E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9C87FD1E293A7C36004B107E /* UnitUtils.swift */,
 				9C87FD1029296BCA004B107E /* Converter.swift */,
 				9C87FD0E29296BA3004B107E /* LengthConverter.swift */,
-				9C87FD1E293A7C36004B107E /* UnitUtils.swift */,
 				9C87FD2829462F83004B107E /* TemperatureConverter.swift */,
+				9CF391302954BF95000A7514 /* SpeedConverter.swift */,
+				9CF391362954CE96000A7514 /* TimeConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				9C87FD302949FD5A004B107E /* UnitConverterTests.swift */,
+				9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */,
+				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
+				9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */,
 			);
 			path = UnitConverterTests;
 			sourceTree = "<group>";
@@ -303,13 +324,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */,
+				9CF391392954CED4000A7514 /* Time.swift in Sources */,
+				9CF391352954C135000A7514 /* Speed.swift in Sources */,
 				9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */,
+				9CF391372954CE96000A7514 /* TimeConverter.swift in Sources */,
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
 				9C87FD17292D926D004B107E /* Length.swift in Sources */,
 				9C87FD23293A91A0004B107E /* UnitProtocol.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
 				9C87FD15292D9173004B107E /* Temperature.swift in Sources */,
 				9C87FD1B292E8965004B107E /* Unit.swift in Sources */,
+				9CF391312954BF95000A7514 /* SpeedConverter.swift in Sources */,
 				9C87FD1D293A769A004B107E /* UnitGroup.swift in Sources */,
 				9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */,
 				9C87FD25293BA1D1004B107E /* UnitType.swift in Sources */,
@@ -324,6 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF3913B2954D2B4000A7514 /* SpeedConverterTests.swift in Sources */,
+				9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */,
+				9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */,
 				9C87FD312949FD5A004B107E /* UnitConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

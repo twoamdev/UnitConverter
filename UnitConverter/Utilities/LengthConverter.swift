@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LengthConverter {
+struct LengthConverter{
     static func convertAtoB(typeA: String, typeB: String, value : String) -> String{
         
         switch typeA {
