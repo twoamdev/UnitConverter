@@ -18,10 +18,12 @@ class UnitConverterTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    /*
     func testTimeConverter() throws {
         let tests = TimeConverterTests()
         tests.run()
     }
+     */
     
     func testSpeedConverter() throws {
         let speedConverterTests = SpeedConverterTests()

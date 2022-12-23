@@ -9,7 +9,7 @@ import Foundation
 
 enum Time : CaseIterable, UnitProtocol{
     
-    case hours, minutes, seconds
+    case hours, minutes, seconds, nanoseconds, microseconds, milliseconds, days, weeks, months, years, decades, centuries
     
     var abbreviation: String {
         switch self {
@@ -19,6 +19,24 @@ enum Time : CaseIterable, UnitProtocol{
             return "min"
         case .seconds:
             return "sec"
+        case .nanoseconds:
+            return "nsec"
+        case .microseconds:
+            return "msec"
+        case .milliseconds:
+            return "mlsec"
+        case .days:
+            return "d"
+        case .weeks:
+            return "w"
+        case .months:
+            return "m"
+        case .years:
+            return "y"
+        case .decades:
+            return "dec"
+        case .centuries:
+            return "cen"
         }
     }
     
@@ -30,6 +48,24 @@ enum Time : CaseIterable, UnitProtocol{
             return "minutes"
         case .seconds:
             return "seconds"
+        case .nanoseconds:
+            return "nanoseconds"
+        case .microseconds:
+            return "microseconds"
+        case .milliseconds:
+            return "milliseconds"
+        case .days:
+            return "days"
+        case .weeks:
+            return "weeks"
+        case .months:
+            return "months"
+        case .years:
+            return "years"
+        case .decades:
+            return "decades"
+        case .centuries:
+            return "centuries"
         }
     }
 }

@@ -40,6 +40,7 @@
 		9CF3913B2954D2B4000A7514 /* SpeedConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */; };
 		9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913C2954D3B3000A7514 /* TestUtils.swift */; };
 		9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */; };
+		9CF3914129553847000A7514 /* ConversionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914029553847000A7514 /* ConversionTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedConverterTests.swift; sourceTree = "<group>"; };
 		9CF3913C2954D3B3000A7514 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
+		9CF3914029553847000A7514 /* ConversionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,15 +180,15 @@
 		9C87FD0829291184004B107E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9C87FD24293BA1D1004B107E /* UnitType.swift */,
-				9C87FD22293A91A0004B107E /* UnitProtocol.swift */,
 				9C87FD16292D926D004B107E /* Length.swift */,
 				9C87FD14292D9173004B107E /* Temperature.swift */,
 				9CF391342954C135000A7514 /* Speed.swift */,
 				9CF391382954CED4000A7514 /* Time.swift */,
+				9C87FD24293BA1D1004B107E /* UnitType.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
 				9C87FD26293C2EC5004B107E /* BootUp.swift */,
+				9C87FD22293A91A0004B107E /* UnitProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +196,7 @@
 		9C87FD0B29295369004B107E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9CF3914029553847000A7514 /* ConversionTable.swift */,
 				9C87FD1E293A7C36004B107E /* UnitUtils.swift */,
 				9C87FD1029296BCA004B107E /* Converter.swift */,
 				9C87FD0E29296BA3004B107E /* LengthConverter.swift */,
@@ -333,6 +336,7 @@
 				9C87FD23293A91A0004B107E /* UnitProtocol.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
 				9C87FD15292D9173004B107E /* Temperature.swift in Sources */,
+				9CF3914129553847000A7514 /* ConversionTable.swift in Sources */,
 				9C87FD1B292E8965004B107E /* Unit.swift in Sources */,
 				9CF391312954BF95000A7514 /* SpeedConverter.swift in Sources */,
 				9C87FD1D293A769A004B107E /* UnitGroup.swift in Sources */,
