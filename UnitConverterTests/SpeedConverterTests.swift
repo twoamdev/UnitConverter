@@ -45,20 +45,20 @@ struct SpeedConverterTests {
 
     private func runMilesPerHourToFeetPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.feetPerSecond.fullName,
-                        value: "2", expectedResult: "2.9333333333")
+                        value: "2", expectedResult: "2.933333")
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.feetPerSecond.fullName,
-                        value: "0.0009438", expectedResult: "0.00138424")
+                        value: "0.0009438", expectedResult: "0.001384")
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.feetPerSecond.fullName,
-                        value: "9878.987", expectedResult: "14489.1809333333")
+                        value: "9878.987", expectedResult: "14489.180933")
     }
 
     private func runMilesPerHourToMetersPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.metersPerSecond.fullName,
                         value: "1", expectedResult: "0.44704")
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.metersPerSecond.fullName,
-                        value: "18473.3992", expectedResult: "8258.348378368")
+                        value: "18473.3992", expectedResult: "8258.348378")
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.metersPerSecond.fullName,
-                        value: "0.000023", expectedResult: "1.028192e-05")
+                        value: "0.000023", expectedResult: "1.0282e-5")
     }
 
     private func runMilesPerHourToKilometersPerHour(){
@@ -69,17 +69,17 @@ struct SpeedConverterTests {
 
     private func runMilesPerHourToKnots(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.milesPerHour.fullName, Speed.knots.fullName,
-                        value: "1", expectedResult: "0.8689762419")
+                        value: "1", expectedResult: "0.868976")
         
     }
 
     private func runFeetPerSecondToMilesPerHour(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.feetPerSecond.fullName, Speed.milesPerHour.fullName,
-                        value: "0.493", expectedResult: "0.3361363636")
+                        value: "0.493", expectedResult: "0.336136")
         TestUtils.converterAssert(UnitType.speed.name, Speed.feetPerSecond.fullName, Speed.milesPerHour.fullName,
                         value: "5280", expectedResult: "3600")
         TestUtils.converterAssert(UnitType.speed.name, Speed.feetPerSecond.fullName, Speed.milesPerHour.fullName,
-                        value: "5.1", expectedResult: "3.4772727273")
+                        value: "5.1", expectedResult: "3.477273")
     }
     
     private func runFeetPerSecondToMetersPerSecond(){
@@ -94,18 +94,18 @@ struct SpeedConverterTests {
     
     private func runFeetPerSecondToKnots(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.feetPerSecond.fullName, Speed.knots.fullName,
-                        value: "1", expectedResult: "0.5924838")
+                        value: "1", expectedResult: "0.592484")
     }
   
     private func runMetersPerSecondToMilesPerHour(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.metersPerSecond.fullName, Speed.milesPerHour.fullName,
-                        value: "1", expectedResult: "2.2369362921")
+                        value: "1", expectedResult: "2.236936")
         
     }
 
     private func runMetersPerSecondToFeetPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.metersPerSecond.fullName, Speed.feetPerSecond.fullName,
-                        value: "1", expectedResult: "3.2808399")
+                        value: "1", expectedResult: "3.28084")
         
     }
     
@@ -117,49 +117,49 @@ struct SpeedConverterTests {
     
     private func runMetersPerSecondToKnots(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.metersPerSecond.fullName, Speed.knots.fullName,
-                        value: "1", expectedResult: "1.9438444924")
+                        value: "1", expectedResult: "1.943844")
         
     }
     
     private func runKilometersPerHourToMilesPerHour(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.kilometersPerHour.fullName, Speed.milesPerHour.fullName,
-                        value: "1", expectedResult: "0.6213711922")
+                        value: "1", expectedResult: "0.621371")
         
     }
     
     private func runKilometersPerHourToFeetPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.kilometersPerHour.fullName, Speed.feetPerSecond.fullName,
-                        value: "1", expectedResult: "0.9113444153")
+                        value: "1", expectedResult: "0.911344")
         
     }
     
     private func runKilometersPerHourToMetersPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.kilometersPerHour.fullName, Speed.metersPerSecond.fullName,
-                        value: "1", expectedResult: "0.2777777778")
+                        value: "1", expectedResult: "0.277778")
         
     }
     
     private func runKilometersPerHourToKnots(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.kilometersPerHour.fullName, Speed.knots.fullName,
-                        value: "1", expectedResult: "0.5399568")
+                        value: "1", expectedResult: "0.539957")
         
     }
     
     private func runKnotsToMilesPerHour(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.knots.fullName, Speed.milesPerHour.fullName,
-                        value: "1", expectedResult: "1.150779448")
+                        value: "1", expectedResult: "1.150779")
         
     }
     
     private func runKnotsToFeetPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.knots.fullName, Speed.feetPerSecond.fullName,
-                        value: "1", expectedResult: "1.6878098571")
+                        value: "1", expectedResult: "1.68781")
         
     }
     
     private func runKnotsToMetersPerSecond(){
         TestUtils.converterAssert(UnitType.speed.name, Speed.knots.fullName, Speed.metersPerSecond.fullName,
-                        value: "1", expectedResult: "0.5144444444")
+                        value: "1", expectedResult: "0.514444")
         
     }
     

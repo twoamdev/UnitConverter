@@ -61,7 +61,7 @@ struct Converter {
     
     static private func convertedValue(value : String) -> String{
         if let numValue = Double(value){
-            return formatValue(value: numValue)
+            return trimTrailingZeros(formatValue(value: numValue))
         }
         else{
             return value
@@ -69,62 +69,73 @@ struct Converter {
     }
     
     static private func formatValue(value : Double) -> String{
-        
+        /*
         if !requireScientificNotation(value) {
             let roundedValue = roundValue(value)
             return roundedValue - floor(roundedValue) == 0.0 ? String(Int(roundedValue)) : String(roundedValue)
         }
         return String(value)
-    }
-    
-    static func roundValue(_ value : Double) -> Double{
-
-        //decide to which precision to return
-        let precision = 6
-        var defaultPrecision = round(value * calculatePrecisionValue(precision)) / calculatePrecisionValue(precision)
-        for i in 1...4 {
-            let higherPrecision = round(value * calculatePrecisionValue(precision + i)) / calculatePrecisionValue(precision + i)
-            if defaultPrecision == higherPrecision{
-                break
+         */
+        
+            
+        if value >= 10000000 {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .scientific
+            formatter.positiveFormat = "0.####E+0"
+            formatter.exponentSymbol = "e"
+            if let scientificFormatted = formatter.string(for: value) {
+                return scientificFormatted
             }
             else{
-                defaultPrecision = higherPrecision
+                return String(value)
             }
         }
-        return defaultPrecision
-    }
-    
-    static private func requireScientificNotation(_ value : Double) -> Bool {
-        let stringValue = String(value).lowercased()
-        return stringValue.contains("e") ? true : false
-    }
-    
-    static private func calculatePrecisionValue(_ precision : Int) -> Double{
-        // expecting an int from 1 to 10
-        switch precision {
-        case 1:
-            return 10.0
-        case 2:
-            return 100.0
-        case 3:
-            return 1000.0
-        case 4:
-            return 10000.0
-        case 5:
-            return 100000.0
-        case 6:
-            return 1000000.0
-        case 7:
-            return 10000000.0
-        case 8:
-            return 100000000.0
-        case 9:
-            return 1000000000.0
-        case 10:
-            return 10000000000.0
-        default:
-            return 10.0
+        else if value < 1.0{
+            if value < 0.0001{
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .scientific
+                formatter.positiveFormat = "0.####E+0"
+                formatter.exponentSymbol = "e"
+                if let scientificFormatted = formatter.string(for: value) {
+                    return scientificFormatted
+                }
+                else{
+                    return String(value)
+                }
+            }
+            else{
+                return String(format: "%.6f", value)
+            }
         }
+        else{
+            return value - floor(value) == 0.0 ? String(Int(value)) : String(format: "%.6f", value)
+        }
+        
     }
     
+    static private func trimTrailingZeros(_ value : String) -> String {
+        
+        if !value.contains(".") || value.lowercased().contains("e"){
+            return value
+        }
+        
+        
+        var editValue : String = value
+        for _ in 0..<128{
+            if editValue.last == "0"{
+                editValue = String(editValue.dropLast())
+            }
+            else{
+                break
+            }
+        }
+        
+        if editValue.last == "."{
+            editValue = String(editValue.dropLast())
+        }
+        
+        return editValue
+        
+        //return ""
+    }
 }
