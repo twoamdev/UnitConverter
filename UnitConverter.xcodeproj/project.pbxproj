@@ -41,6 +41,8 @@
 		9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913C2954D3B3000A7514 /* TestUtils.swift */; };
 		9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */; };
 		9CF3914129553847000A7514 /* ConversionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914029553847000A7514 /* ConversionTable.swift */; };
+		9CF39143295742BF000A7514 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39142295742BF000A7514 /* Volume.swift */; };
+		9CF3914529574ACE000A7514 /* VolumeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914429574ACE000A7514 /* VolumeConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		9CF3913C2954D3B3000A7514 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
 		9CF3914029553847000A7514 /* ConversionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTable.swift; sourceTree = "<group>"; };
+		9CF39142295742BF000A7514 /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
+		9CF3914429574ACE000A7514 /* VolumeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				9C87FD14292D9173004B107E /* Temperature.swift */,
 				9CF391342954C135000A7514 /* Speed.swift */,
 				9CF391382954CED4000A7514 /* Time.swift */,
+				9CF39142295742BF000A7514 /* Volume.swift */,
 				9C87FD24293BA1D1004B107E /* UnitType.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
@@ -203,6 +208,7 @@
 				9C87FD2829462F83004B107E /* TemperatureConverter.swift */,
 				9CF391302954BF95000A7514 /* SpeedConverter.swift */,
 				9CF391362954CE96000A7514 /* TimeConverter.swift */,
+				9CF3914429574ACE000A7514 /* VolumeConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -338,9 +344,11 @@
 				9C87FD15292D9173004B107E /* Temperature.swift in Sources */,
 				9CF3914129553847000A7514 /* ConversionTable.swift in Sources */,
 				9C87FD1B292E8965004B107E /* Unit.swift in Sources */,
+				9CF39143295742BF000A7514 /* Volume.swift in Sources */,
 				9CF391312954BF95000A7514 /* SpeedConverter.swift in Sources */,
 				9C87FD1D293A769A004B107E /* UnitGroup.swift in Sources */,
 				9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */,
+				9CF3914529574ACE000A7514 /* VolumeConverter.swift in Sources */,
 				9C87FD25293BA1D1004B107E /* UnitType.swift in Sources */,
 				9C87FD1129296BCA004B107E /* Converter.swift in Sources */,
 				9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */,

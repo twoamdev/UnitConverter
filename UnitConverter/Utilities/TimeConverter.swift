@@ -6,7 +6,6 @@
 //
 
 import Foundation
-typealias op = InstructionOp
 
 struct TimeConverter{
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+typealias op = InstructionOp
 
 struct Converter {
     
@@ -24,6 +25,9 @@ struct Converter {
         case UnitType.time.name:
             let timeConversion = TimeConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: timeConversion)
+        case UnitType.volume.name:
+            let volumeConversion = VolumeConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: volumeConversion)
         default:
             return ""
         } 
