@@ -82,15 +82,15 @@ struct Formula {
 }
 
 struct Instruction {
-    let operation : String
+    let operation : InstructionOp
     let operand : Double
     
-    init(_ operation : String){
+    init(_ operation : InstructionOp){
         self.operation = operation
         self.operand = 0.0
     }
     
-    init(_ operation : String, _ operand : Double){
+    init(_ operation : InstructionOp, _ operand : Double){
         self.operation = operation
         self.operand = operand
     }
@@ -100,12 +100,12 @@ struct Instruction {
     }
 }
 
-struct InstructionOp {
-    static let mult = "*"
-    static let divide = "/"
-    static let add = "+"
-    static let minus = "-"
-    static let none = ""
+enum InstructionOp : String{
+    case mult = "*"
+    case divide = "/"
+    case add = "+"
+    case minus = "-"
+    case none = ""
 }
 
 struct ConversionParser {
