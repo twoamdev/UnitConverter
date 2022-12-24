@@ -16,14 +16,10 @@ struct ConversionTable{
     
 
     func convertAtoB(unitNameA : String, unitNameB : String, _ valueToConvert: Double) -> String{
-        print("\tEntering convertAtoB in ConversionTable...\n\tunitNameA: ->\(unitNameA)<-\n\tunitNameB: ->\(unitNameB)<-\n\tvalueToConvert: \(valueToConvert)")
-        
-        
         var indexA = -1
         var indexB = -1
         for i in 0..<self.orderedTable.count {
             let elem = self.orderedTable[i]
-            //print("\telem name: ->\(elem.unitName)<-\n\t\tindex: (\(i))")
             if indexA == -1{
                 indexA = elem.unitName == unitNameA ? i : -1
             }
@@ -31,33 +27,22 @@ struct ConversionTable{
                 indexB = elem.unitName == unitNameB ? i : -1
             }
         }
-        print("\t(indexA: \(indexA) -- indexB: \(indexB))")
         if indexA == -1 && indexB == -1{
             return ""
         }
 
         var value : Double = valueToConvert
         if indexA < indexB{
-            print("\t-----\n\tascending")
             for i in indexA..<indexB{
-                print("\t\tcurrent index: \(i)")
                 let elem = self.orderedTable[i]
-                print("\t\telem: \(elem.unitName)\n\t\tvalue before: \(value)\n\t\tformula: |\(elem.nextFormula)|")
                 value = ConversionParser.executeFormula(value, elem.nextFormula)
-                print("\t\t**convert**\n\t\tvalue after: \(value)")
             }
-            print("\tDone executing, leaving convert in conversion table")
         }
         if indexB < indexA{
-            print("\t-----\n\tdescending")
             for i in stride(from: indexA, to: indexB, by: -1){
-                print("\t\tcurrent index: \(i)")
                 let elem = self.orderedTable[i]
-                print("\t\telem: \(elem.unitName)\n\t\tvalue before: \(value)\n\t\tformula: |\(elem.nextFormula)|")
                 value = ConversionParser.executeFormula(value, elem.previousFormula)
-                print("\t\t**convert**\n\t\tvalue after: \(value)")
             }
-            print("\tDone executing, leaving convert in conversion table")
         }
 
         return String(value)
@@ -68,57 +53,80 @@ struct ConversionTable{
 struct ConversionElement {
     
     let unitName : String
-    let previousFormula : String
-    let nextFormula : String
+    let previousFormula : Formula
+    let nextFormula : Formula
     
-    init(_ unitName : String, convertToPreviousFormula : String, convertToNextFormula : String){
+    init(_ unitName : String, previousFormula : Formula, nextFormula : Formula){
         self.unitName = unitName
-        self.previousFormula = convertToPreviousFormula
-        self.nextFormula = convertToNextFormula
+        self.previousFormula = previousFormula
+        self.nextFormula = nextFormula
     }
     
 }
 
-struct ConversionParser {
-    static let stop = "_"
+struct Formula {
+    let instructions : [Instruction]
+    
+    init(_ instructions : [Instruction]){
+        self.instructions = instructions
+    }
+    
+    func isExecutable() -> Bool{
+        for instruction in self.instructions {
+            if instruction.isExecutable(){
+                return true
+            }
+        }
+        return false
+    }
+}
+
+struct Instruction {
+    let operation : String
+    let operand : Double
+    
+    init(_ operation : String){
+        self.operation = operation
+        self.operand = 0.0
+    }
+    
+    init(_ operation : String, _ operand : Double){
+        self.operation = operation
+        self.operand = operand
+    }
+    
+    func isExecutable() -> Bool {
+        return self.operation != InstructionOp.none ? true : false
+    }
+}
+
+struct InstructionOp {
     static let mult = "*"
     static let divide = "/"
     static let add = "+"
     static let minus = "-"
     static let none = ""
-    
-    static func executeFormula(_ value : Double, _ formula : String) -> Double{
-        print("\t\t\t --- inside forumla execution ---")
-        if formula == self.none{
+}
+
+struct ConversionParser {
+    static func executeFormula(_ value : Double, _ formula : Formula) -> Double{
+        if !formula.isExecutable(){
             return value
         }
 
-        var operations : [String] = formula.components(separatedBy: self.stop)
-        operations.removeAll{$0.isEmpty}
-        print("\t\t\toperations: \(operations)")
         var execValue = value
-        print("\t\t\texecValue: \(execValue)")
-        for operation in operations {
-            var components : [String] = operation.components(separatedBy: " ")
-            components.removeAll{$0.isEmpty}
-            print("\t\t\t\tcomponents: \(components)")
-            if components.isEmpty{
-                return value
-            }
-            let operationToken = components[0]
-            if let operationValue = Double(components[1]){
-                switch operationToken {
-                case self.mult:
-                    execValue *= operationValue
-                case self.divide:
-                    execValue /= operationValue
-                case self.add:
-                    execValue += operationValue
-                case self.minus:
-                    execValue -= operationValue
-                default:
-                    execValue = value
-                }
+        for instruction in formula.instructions {
+            switch instruction.operation {
+            case InstructionOp.mult:
+                execValue *= instruction.operand
+            case InstructionOp.divide:
+                execValue /= instruction.operand
+            case InstructionOp.add:
+                execValue += instruction.operand
+            case InstructionOp.minus:
+                execValue -= instruction.operand
+            default:
+                continue
             }
         }
         return execValue
