@@ -31,6 +31,9 @@ struct Converter {
         case UnitType.mass.name:
             let massConversion = MassConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: massConversion)
+        case UnitType.energy.name:
+            let energyConversion = EnergyConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: energyConversion)
         default:
             return ""
         } 

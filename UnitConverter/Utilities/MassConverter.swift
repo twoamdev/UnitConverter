@@ -24,28 +24,28 @@ struct MassConverter{
         let elements : [ConversionElement] = [
             
             ConversionElement(
-            Mass.stone.fullName,
+            Mass.stones.fullName,
             previousFormula: Formula([Instruction(op.none)]),
             nextFormula: Formula([Instruction(op.mult, 224)])),
             
             ConversionElement(
-            Mass.ounce.fullName,
+            Mass.ounces.fullName,
             previousFormula: Formula([Instruction(op.divide, 224)]),
             nextFormula: Formula([Instruction(op.divide, 16)])),
             
             ConversionElement(
-            Mass.pound.fullName,
+            Mass.pounds.fullName,
             previousFormula: Formula([Instruction(op.mult, 16)]),
             nextFormula: Formula([Instruction(op.divide, 2000)])),
             
             ConversionElement(
-            Mass.USTon.fullName,
+            Mass.USTons.fullName,
             previousFormula: Formula([Instruction(op.mult, 2000)]),
             nextFormula: Formula([Instruction(op.mult, 2000),
                                   Instruction(op.divide, 2240)])),
             
             ConversionElement(
-            Mass.imperialTon.fullName,
+            Mass.imperialTons.fullName,
             previousFormula: Formula([Instruction(op.mult, 2240),
                                       Instruction(op.divide, 2000)]),
             nextFormula: Formula([Instruction(op.mult, 2240),
@@ -53,34 +53,34 @@ struct MassConverter{
                                   Instruction(op.divide, 1000)])),
 
             ConversionElement(
-            Mass.metricTon.fullName,
+            Mass.metricTons.fullName,
             previousFormula: Formula([Instruction(op.mult, 1000),
                                       Instruction(op.mult, 2.20462262185),
                                       Instruction(op.divide, 2240)]),
             nextFormula: Formula([Instruction(op.mult, 1000)])),
             
             ConversionElement(
-            Mass.kilogram.fullName,
+            Mass.kilograms.fullName,
             previousFormula: Formula([Instruction(op.divide, 1000)]),
             nextFormula: Formula([Instruction(op.mult, 1000)])),
             
             ConversionElement(
-            Mass.gram.fullName,
+            Mass.grams.fullName,
             previousFormula: Formula([Instruction(op.divide, 1000)]),
             nextFormula: Formula([Instruction(op.mult, 1000)])),
             
             ConversionElement(
-            Mass.milligram.fullName,
+            Mass.milligrams.fullName,
             previousFormula: Formula([Instruction(op.divide, 1000)]),
             nextFormula: Formula([Instruction(op.mult, 1000)])),
             
             ConversionElement(
-            Mass.microgram.fullName,
+            Mass.micrograms.fullName,
             previousFormula: Formula([Instruction(op.divide, 1000)]),
             nextFormula: Formula([Instruction(op.mult, 1000)])),
             
             ConversionElement(
-            Mass.ounce.fullName,
+            Mass.ounces.fullName,
             previousFormula: Formula([Instruction(op.divide, 1000)]),
             nextFormula: Formula([Instruction(op.none)]))
             ]

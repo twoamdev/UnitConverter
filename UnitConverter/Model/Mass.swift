@@ -9,54 +9,54 @@ import Foundation
 
 enum Mass : CaseIterable, UnitProtocol{
 
-    case metricTon, kilogram, gram, milligram, microgram, imperialTon, USTon, stone, pound, ounce
+    case metricTons, kilograms, grams, milligrams, micrograms, imperialTons, USTons, stones, pounds, ounces
     
     var abbreviation: String{
         switch self {
-        case .metricTon:
+        case .metricTons:
             return "mt"
-        case .kilogram:
+        case .kilograms:
             return "kg"
-        case .gram:
+        case .grams:
             return "g"
-        case .milligram:
+        case .milligrams:
             return "mg"
-        case .microgram:
+        case .micrograms:
             return "MCG"
-        case .imperialTon:
+        case .imperialTons:
             return "IMP t"
-        case .USTon:
+        case .USTons:
             return "t"
-        case .stone:
+        case .stones:
             return "st."
-        case .pound:
+        case .pounds:
             return "lb"
-        case .ounce:
+        case .ounces:
             return "oz"
         }
     }
     
     var fullName: String{
         switch self {
-        case .metricTon:
+        case .metricTons:
             return "metric ton"
-        case .kilogram:
+        case .kilograms:
             return "kilogram"
-        case .gram:
+        case .grams:
             return "gram"
-        case .milligram:
+        case .milligrams:
             return "milligram"
-        case .microgram:
+        case .micrograms:
             return "microgram"
-        case .imperialTon:
+        case .imperialTons:
             return "imperial ton"
-        case .USTon:
+        case .USTons:
             return "US ton"
-        case .stone:
+        case .stones:
             return "stone"
-        case .pound:
+        case .pounds:
             return "pound"
-        case .ounce:
+        case .ounces:
             return "ounce"
         }
     }

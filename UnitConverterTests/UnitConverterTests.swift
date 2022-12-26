@@ -37,6 +37,11 @@ class UnitConverterTests: XCTestCase {
         let tests = MassConverterTests ()
         tests.run()
     }
+    
+    func testEnergyConverter() throws {
+        let tests = EnergyConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {
