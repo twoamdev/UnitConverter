@@ -14,21 +14,21 @@ enum Volume : CaseIterable, UnitProtocol{
     var abbreviation: String {
         switch self {
         case .USGallons:
-            return "US gal"
+            return "gal"
         case .USQuarts:
-            return "US qt"
+            return "qt"
         case .USPints:
-            return "US pt"
+            return "pt"
         case .USCups:
-            return "US c"
+            return "c"
         case .USLegalCups:
-            return "US lcup"
+            return "lcup"
         case .USOunces:
-            return "US oz"
+            return "oz"
         case .USTablespoons:
-            return "US tbsp"
+            return "tbsp"
         case .USTeaspoons:
-            return "US tsp"
+            return "tsp"
         case .cubicMeters:
             return "cu m"
         case .liters:

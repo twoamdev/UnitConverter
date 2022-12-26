@@ -112,7 +112,18 @@ struct Converter {
             }
         }
         else{
-            return value - floor(value) == 0.0 ? String(Int(value)) : String(format: "%.6f", value)
+            //1.0 would be 1
+            //1.999 would 2
+            let remainder = value - floor(value)
+            if remainder <= 0.00001 && remainder >= 0.0{
+                return String(Int(value))
+            }
+            else if remainder >= 0.999 {
+                return String(Int(Int(value) + 1))
+            }
+            else{
+                return String(format: "%.6f", value)
+            }
         }
         
     }

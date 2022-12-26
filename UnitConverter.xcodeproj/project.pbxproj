@@ -43,6 +43,7 @@
 		9CF3914129553847000A7514 /* ConversionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914029553847000A7514 /* ConversionTable.swift */; };
 		9CF39143295742BF000A7514 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39142295742BF000A7514 /* Volume.swift */; };
 		9CF3914529574ACE000A7514 /* VolumeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914429574ACE000A7514 /* VolumeConverter.swift */; };
+		9CF3914729578CE0000A7514 /* VolumeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914629578CE0000A7514 /* VolumeConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		9CF3914029553847000A7514 /* ConversionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTable.swift; sourceTree = "<group>"; };
 		9CF39142295742BF000A7514 /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		9CF3914429574ACE000A7514 /* VolumeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConverter.swift; sourceTree = "<group>"; };
+		9CF3914629578CE0000A7514 /* VolumeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				9C87FD302949FD5A004B107E /* UnitConverterTests.swift */,
 				9CF3913A2954D2B4000A7514 /* SpeedConverterTests.swift */,
 				9CF3913E2954D76F000A7514 /* TimeConverterTests.swift */,
+				9CF3914629578CE0000A7514 /* VolumeConverterTests.swift */,
 				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 			);
 			path = UnitConverterTests;
@@ -364,6 +367,7 @@
 				9CF3913B2954D2B4000A7514 /* SpeedConverterTests.swift in Sources */,
 				9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */,
 				9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */,
+				9CF3914729578CE0000A7514 /* VolumeConverterTests.swift in Sources */,
 				9C87FD312949FD5A004B107E /* UnitConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

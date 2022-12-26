@@ -80,26 +80,32 @@ struct ContentView: View {
     }
     
     var topUnitSelectionButtons: some View{
-        VStack{
-            let columns = [GridItem(.adaptive(minimum: 80))]
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
-                    let unitGroup = units[unitTypeIndex]
-                    Button(action: {
-                        self.valueIndexA = i
-                        self.swapUnitALabel(unitGroup.unitMemberFullName(index: i))
-                    },label: {
-                        Text(unitGroup.unitMemberAbbreviation(index: i))
-                            .foregroundColor(self.valueIndexA == i ? Color.red : Color.blue)
-                    })
-                        .onChange(of: self.valueIndexA, perform: { _ in
-                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
+        ScrollView(.horizontal){
+            VStack{
+                let gridItem = GridItem(.fixed(40))
+                let rows = [gridItem, gridItem, gridItem]
+                
+                LazyHGrid(rows: rows){
+                    ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
+                        let unitGroup = units[unitTypeIndex]
+                        Button(action: {
+                            self.valueIndexA = i
+                            self.swapUnitALabel(unitGroup.unitMemberFullName(index: i))
+                        },label: {
+                            Text(unitGroup.unitMemberAbbreviation(index: i))
+                                .foregroundColor(self.valueIndexA == i ? Color.red : Color.blue)
                         })
+                            .onChange(of: self.valueIndexA, perform: { _ in
+                                inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
+                            })
+                    }
+                    .buttonStyle(.bordered)
+                    .font(Font.custom("SourceCodePro-Regular", size: 18))
+                    .padding()
                 }
-                .buttonStyle(.bordered)
-                .font(Font.custom("SourceCodePro-Regular", size: 18))
             }
         }
+
     }
     
     var inputAndResultFields: some View{
@@ -134,9 +140,12 @@ struct ContentView: View {
     }
     
     var bottomUnitSelectionButtons: some View{
-        VStack{
-            let columns = [GridItem(.adaptive(minimum: 80))]
-            LazyVGrid(columns: columns, spacing: 10) {
+        ScrollView(.horizontal){
+            VStack{
+            let gridItem = GridItem(.fixed(40))
+            let rows = [gridItem, gridItem, gridItem]
+            
+            LazyHGrid(rows: rows){
                 
                 ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
                     let unit = units[unitTypeIndex]
@@ -153,8 +162,9 @@ struct ContentView: View {
                 }
                 .buttonStyle(.bordered)
                 .font(Font.custom("SourceCodePro-Regular", size: 18))
-                
+                .padding()
             }
+        }
         }
     }
 }

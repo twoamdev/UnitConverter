@@ -17,16 +17,19 @@ class UnitConverterTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
+    func testSpeedConverter() throws {
+        let tests = SpeedConverterTests()
+        tests.run()
+    }
     
     func testTimeConverter() throws {
         let tests = TimeConverterTests()
         tests.run()
     }
     
-    
-    func testSpeedConverter() throws {
-        let tests = SpeedConverterTests()
+    func testVolumeConverter() throws {
+        let tests = VolumeConverterTests()
         tests.run()
     }
 
