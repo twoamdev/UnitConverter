@@ -28,6 +28,9 @@ struct Converter {
         case UnitType.volume.name:
             let volumeConversion = VolumeConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: volumeConversion)
+        case UnitType.mass.name:
+            let massConversion = MassConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: massConversion)
         default:
             return ""
         } 

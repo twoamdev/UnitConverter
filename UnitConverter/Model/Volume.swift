@@ -59,45 +59,45 @@ enum Volume : CaseIterable, UnitProtocol{
     var fullName: String {
         switch self {
         case .USGallons:
-            return "US Liquid Gallons"
+            return "US liquid gallons"
         case .USQuarts:
-            return "US Liquid Quarts"
+            return "US liquid guarts"
         case .USPints:
-            return "US Liquid Pints"
+            return "US liquid pints"
         case .USCups:
-            return "US Liquid Cups"
+            return "US liquid cups"
         case .USLegalCups:
-            return "US Legal Cups"
+            return "US legal cups"
         case .USOunces:
-            return "US Liquid Ounces"
+            return "US liquid ounces"
         case .USTablespoons:
-            return "US Tablespoons"
+            return "US tablespoons"
         case .USTeaspoons:
-            return "US Teaspoons"
+            return "US teaspoons"
         case .cubicMeters:
-            return "Cubic Meters"
+            return "cubic meters"
         case .liters:
-            return "Liters"
+            return "liters"
         case .milliliters:
-            return "Milliliters"
+            return "milliliters"
         case .imperialGallons:
-            return "Imperial Gallons"
+            return "imperial gallons"
         case .imperialQuarts:
-            return "Imperial Quarts"
+            return "imperial quarts"
         case .imperialPints:
-            return "Imperial Pints"
+            return "imperial pints"
         case .imperialCups:
-            return "Imperial Cups"
+            return "imperial cups"
         case .imperialOunces:
-            return "Imperial Ounces"
+            return "imperial ounces"
         case .imperialTablespoons:
-            return "Imperial Tablespoons"
+            return "imperial tablespoons"
         case .imperialTeaspoons:
-            return "Imperial Teaspoons"
+            return "imperial teaspoons"
         case .cubicFeet:
-            return "Cubic Feet"
+            return "cubic feet"
         case .cubicInches:
-            return "Cubic Inches"
+            return "cubic inches"
         }
     }
 }

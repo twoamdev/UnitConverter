@@ -32,6 +32,11 @@ class UnitConverterTests: XCTestCase {
         let tests = VolumeConverterTests()
         tests.run()
     }
+    
+    func testMassConverter() throws {
+        let tests = MassConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {
