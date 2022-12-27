@@ -50,6 +50,9 @@
 		9CF3914F295A0B1B000A7514 /* Energy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3914E295A0B1B000A7514 /* Energy.swift */; };
 		9CF39151295A0E44000A7514 /* EnergyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39150295A0E44000A7514 /* EnergyConverter.swift */; };
 		9CF39153295A6298000A7514 /* EnergyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39152295A6298000A7514 /* EnergyConverterTests.swift */; };
+		9CF39155295B9A39000A7514 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39154295B9A39000A7514 /* Frequency.swift */; };
+		9CF39157295B9B79000A7514 /* FrequencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39156295B9B79000A7514 /* FrequencyConverter.swift */; };
+		9CF39159295B9CD2000A7514 /* FrequencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39158295B9CD2000A7514 /* FrequencyConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		9CF3914E295A0B1B000A7514 /* Energy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Energy.swift; sourceTree = "<group>"; };
 		9CF39150295A0E44000A7514 /* EnergyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyConverter.swift; sourceTree = "<group>"; };
 		9CF39152295A6298000A7514 /* EnergyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyConverterTests.swift; sourceTree = "<group>"; };
+		9CF39154295B9A39000A7514 /* Frequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
+		9CF39156295B9B79000A7514 /* FrequencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyConverter.swift; sourceTree = "<group>"; };
+		9CF39158295B9CD2000A7514 /* FrequencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,7 @@
 				9CF39142295742BF000A7514 /* Volume.swift */,
 				9CF391482959D319000A7514 /* Mass.swift */,
 				9CF3914E295A0B1B000A7514 /* Energy.swift */,
+				9CF39154295B9A39000A7514 /* Frequency.swift */,
 				9C87FD24293BA1D1004B107E /* UnitType.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
@@ -227,6 +234,7 @@
 				9CF3914429574ACE000A7514 /* VolumeConverter.swift */,
 				9CF3914A2959E659000A7514 /* MassConverter.swift */,
 				9CF39150295A0E44000A7514 /* EnergyConverter.swift */,
+				9CF39156295B9B79000A7514 /* FrequencyConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				9CF3914629578CE0000A7514 /* VolumeConverterTests.swift */,
 				9CF3914C2959EB4D000A7514 /* MassConverterTests.swift */,
 				9CF39152295A6298000A7514 /* EnergyConverterTests.swift */,
+				9CF39158295B9CD2000A7514 /* FrequencyConverterTests.swift */,
 				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 			);
 			path = UnitConverterTests;
@@ -358,6 +367,7 @@
 				9CF391392954CED4000A7514 /* Time.swift in Sources */,
 				9CF391352954C135000A7514 /* Speed.swift in Sources */,
 				9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */,
+				9CF39155295B9A39000A7514 /* Frequency.swift in Sources */,
 				9CF391372954CE96000A7514 /* TimeConverter.swift in Sources */,
 				9C87FCD1291DD729004B107E /* ContentView.swift in Sources */,
 				9C87FD17292D926D004B107E /* Length.swift in Sources */,
@@ -373,6 +383,7 @@
 				9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */,
 				9CF3914529574ACE000A7514 /* VolumeConverter.swift in Sources */,
 				9CF3914B2959E659000A7514 /* MassConverter.swift in Sources */,
+				9CF39157295B9B79000A7514 /* FrequencyConverter.swift in Sources */,
 				9C87FD25293BA1D1004B107E /* UnitType.swift in Sources */,
 				9C87FD1129296BCA004B107E /* Converter.swift in Sources */,
 				9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */,
@@ -391,6 +402,7 @@
 				9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */,
 				9CF39153295A6298000A7514 /* EnergyConverterTests.swift in Sources */,
 				9CF3914729578CE0000A7514 /* VolumeConverterTests.swift in Sources */,
+				9CF39159295B9CD2000A7514 /* FrequencyConverterTests.swift in Sources */,
 				9CF3914D2959EB4D000A7514 /* MassConverterTests.swift in Sources */,
 				9C87FD312949FD5A004B107E /* UnitConverterTests.swift in Sources */,
 			);

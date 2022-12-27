@@ -10,9 +10,6 @@ import XCTest
 
 
 struct EnergyConverterTests {
-    /*
-     joules, kilojoules, gramCalories, kilocalories, wattHours, kilowattHours, electronVolts, britishThermalUnits, USTherms, footPounds
-     */
     func run(){
         let joules = TestMap(UnitType.energy.name,
                             testUnit: TestUnit(Energy.joules.fullName, "1"),

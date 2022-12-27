@@ -42,6 +42,11 @@ class UnitConverterTests: XCTestCase {
         let tests = EnergyConverterTests ()
         tests.run()
     }
+    
+    func frequencyConverter() throws {
+        let tests = FrequencyConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {

@@ -34,6 +34,9 @@ struct Converter {
         case UnitType.energy.name:
             let energyConversion = EnergyConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: energyConversion)
+        case UnitType.frequency.name:
+            let freqConversion = FrequencyConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: freqConversion)
         default:
             return ""
         } 
