@@ -63,6 +63,11 @@ class UnitConverterTests: XCTestCase {
         let tests = PlaneAngleConverterTests ()
         tests.run()
     }
+    
+    func testFuelEconomyConverter() throws {
+        let tests = FuelConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {

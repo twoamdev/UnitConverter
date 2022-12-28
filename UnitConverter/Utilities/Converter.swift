@@ -46,6 +46,9 @@ struct Converter {
         case UnitType.planeAngle.name:
             let planeAngleConversion = PlaneAngleConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: planeAngleConversion)
+        case UnitType.fuelEconomy.name:
+            let fuelConverter = FuelConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: fuelConverter)
         
         default:
             return ""

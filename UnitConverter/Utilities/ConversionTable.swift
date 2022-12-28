@@ -105,6 +105,7 @@ enum InstructionOp : String{
     case divide = "/"
     case add = "+"
     case minus = "-"
+    case flip = "flip"
     case none = ""
 }
 
@@ -125,6 +126,8 @@ struct ConversionParser {
                 execValue += instruction.operand
             case InstructionOp.minus:
                 execValue -= instruction.operand
+            case InstructionOp.flip:
+                execValue = 1.0/execValue
             default:
                 continue
             }
