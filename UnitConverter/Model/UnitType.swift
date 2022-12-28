@@ -10,7 +10,7 @@ import Foundation
 
 
 enum UnitType : CaseIterable{
-    case length, temperature, speed, time, volume, mass, energy, frequency, area, pressure
+    case length, temperature, speed, time, volume, mass, energy, frequency, area, pressure, planeAngle
     
     var name : String {
         switch self{
@@ -34,6 +34,9 @@ enum UnitType : CaseIterable{
             return "area"
         case .pressure:
             return "pressure"
+        case .planeAngle:
+            return "plane angle"
+            
         }
     }
     
@@ -59,6 +62,8 @@ enum UnitType : CaseIterable{
             return self.getAbbreviationsAndNames(unitCases: Area.allCases)
         case .pressure:
             return self.getAbbreviationsAndNames(unitCases: Pressure.allCases)
+        case .planeAngle:
+            return self.getAbbreviationsAndNames(unitCases: PlaneAngle.allCases)
         
         
         }

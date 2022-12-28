@@ -58,6 +58,11 @@ class UnitConverterTests: XCTestCase {
         let tests = PressureConverterTests ()
         tests.run()
     }
+    
+    func testPlaneAngleConverter() throws {
+        let tests = PlaneAngleConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {

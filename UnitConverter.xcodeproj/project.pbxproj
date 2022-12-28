@@ -59,6 +59,9 @@
 		9CF39161295C78FF000A7514 /* Pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39160295C78FF000A7514 /* Pressure.swift */; };
 		9CF39163295C7A62000A7514 /* PressureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39162295C7A62000A7514 /* PressureConverter.swift */; };
 		9CF39165295C7CAC000A7514 /* PressureConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39164295C7CAC000A7514 /* PressureConverterTests.swift */; };
+		9CF39167295C8001000A7514 /* PlaneAngle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39166295C8001000A7514 /* PlaneAngle.swift */; };
+		9CF39169295C81F3000A7514 /* PlaneAngleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39168295C81F3000A7514 /* PlaneAngleConverter.swift */; };
+		9CF3916B295C878F000A7514 /* PlaneAngleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3916A295C878F000A7514 /* PlaneAngleConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,9 @@
 		9CF39160295C78FF000A7514 /* Pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pressure.swift; sourceTree = "<group>"; };
 		9CF39162295C7A62000A7514 /* PressureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureConverter.swift; sourceTree = "<group>"; };
 		9CF39164295C7CAC000A7514 /* PressureConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureConverterTests.swift; sourceTree = "<group>"; };
+		9CF39166295C8001000A7514 /* PlaneAngle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneAngle.swift; sourceTree = "<group>"; };
+		9CF39168295C81F3000A7514 /* PlaneAngleConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneAngleConverter.swift; sourceTree = "<group>"; };
+		9CF3916A295C878F000A7514 /* PlaneAngleConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneAngleConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 				9CF39154295B9A39000A7514 /* Frequency.swift */,
 				9CF3915C295C603E000A7514 /* Area.swift */,
 				9CF39160295C78FF000A7514 /* Pressure.swift */,
+				9CF39166295C8001000A7514 /* PlaneAngle.swift */,
 				9C87FD24293BA1D1004B107E /* UnitType.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
@@ -251,6 +258,7 @@
 				9CF39156295B9B79000A7514 /* FrequencyConverter.swift */,
 				9CF3915A295C6024000A7514 /* AreaConverter.swift */,
 				9CF39162295C7A62000A7514 /* PressureConverter.swift */,
+				9CF39168295C81F3000A7514 /* PlaneAngleConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 				9CF39158295B9CD2000A7514 /* FrequencyConverterTests.swift */,
 				9CF3915E295C68D2000A7514 /* AreaConverterTests.swift */,
 				9CF39164295C7CAC000A7514 /* PressureConverterTests.swift */,
+				9CF3916A295C878F000A7514 /* PlaneAngleConverterTests.swift */,
 				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 			);
 			path = UnitConverterTests;
@@ -405,9 +414,11 @@
 				9CF39161295C78FF000A7514 /* Pressure.swift in Sources */,
 				9CF3914B2959E659000A7514 /* MassConverter.swift in Sources */,
 				9CF39157295B9B79000A7514 /* FrequencyConverter.swift in Sources */,
+				9CF39167295C8001000A7514 /* PlaneAngle.swift in Sources */,
 				9C87FD25293BA1D1004B107E /* UnitType.swift in Sources */,
 				9C87FD1129296BCA004B107E /* Converter.swift in Sources */,
 				9C87FCDE2927FC7F004B107E /* NumberFieldView.swift in Sources */,
+				9CF39169295C81F3000A7514 /* PlaneAngleConverter.swift in Sources */,
 				9CF3914F295A0B1B000A7514 /* Energy.swift in Sources */,
 				9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */,
 				9CF3915B295C6024000A7514 /* AreaConverter.swift in Sources */,
@@ -429,6 +440,7 @@
 				9CF39165295C7CAC000A7514 /* PressureConverterTests.swift in Sources */,
 				9CF3914D2959EB4D000A7514 /* MassConverterTests.swift in Sources */,
 				9C87FD312949FD5A004B107E /* UnitConverterTests.swift in Sources */,
+				9CF3916B295C878F000A7514 /* PlaneAngleConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

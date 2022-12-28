@@ -43,6 +43,10 @@ struct Converter {
         case UnitType.pressure.name:
             let pressureConversion = PressureConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: pressureConversion)
+        case UnitType.planeAngle.name:
+            let planeAngleConversion = PlaneAngleConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: planeAngleConversion)
+        
         default:
             return ""
         } 
