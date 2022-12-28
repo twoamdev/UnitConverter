@@ -53,6 +53,11 @@ class UnitConverterTests: XCTestCase {
         let tests = AreaConverterTests ()
         tests.run()
     }
+    
+    func testPressureConverter() throws {
+        let tests = PressureConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {

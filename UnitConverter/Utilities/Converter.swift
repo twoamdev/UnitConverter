@@ -40,6 +40,9 @@ struct Converter {
         case UnitType.area.name:
             let areaConversion = AreaConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: areaConversion)
+        case UnitType.pressure.name:
+            let pressureConversion = PressureConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: pressureConversion)
         default:
             return ""
         } 
