@@ -37,6 +37,9 @@ struct Converter {
         case UnitType.frequency.name:
             let freqConversion = FrequencyConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: freqConversion)
+        case UnitType.area.name:
+            let areaConversion = AreaConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: areaConversion)
         default:
             return ""
         } 

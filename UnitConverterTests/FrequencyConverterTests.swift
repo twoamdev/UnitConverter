@@ -11,7 +11,7 @@ import XCTest
 
 struct FrequencyConverterTests {
     func run(){
-        let hertz = TestMap(UnitType.energy.name,
+        let hertz = TestMap(UnitType.frequency.name,
                             testUnit: TestUnit(Frequency.hertz.fullName, "1"),
                             compareUnits: [
                                 TestUnit(Frequency.hertz.fullName, "1"),
@@ -22,16 +22,16 @@ struct FrequencyConverterTests {
                             ])
         TestUtils.convertMulitpleAssertions(mapping: hertz)
         
-        let megaHertz = TestMap(UnitType.energy.name,
+        let gigaHertz = TestMap(UnitType.frequency.name,
                             testUnit: TestUnit(Frequency.gigahertz.fullName, "1"),
                             compareUnits: [
                                 TestUnit(Frequency.hertz.fullName, "1e+9"),
-                                TestUnit(Frequency.kilohertz.fullName, "1e+9"),
+                                TestUnit(Frequency.kilohertz.fullName, "1e+6"),
                                 TestUnit(Frequency.megahertz.fullName, "1000"),
                                 TestUnit(Frequency.gigahertz.fullName, "1"),
                                 
                             ])
-        TestUtils.convertMulitpleAssertions(mapping: megaHertz)
+        TestUtils.convertMulitpleAssertions(mapping: gigaHertz)
         
        
     }
