@@ -49,6 +49,9 @@ struct Converter {
         case UnitType.fuelEconomy.name:
             let fuelConverter = FuelConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
             return convertedValue(value: fuelConverter)
+        case UnitType.digitalStorage.name:
+            let digitalStorgeConverter = DigitalStorageConverter.convertAtoB(typeA: unitTypeA, typeB: unitTypeB, value: valueA)
+            return convertedValue(value: digitalStorgeConverter)
         
         default:
             return ""

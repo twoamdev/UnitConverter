@@ -68,6 +68,11 @@ class UnitConverterTests: XCTestCase {
         let tests = FuelConverterTests ()
         tests.run()
     }
+    
+    func testDigitalStorageConverter() throws {
+        let tests = DigitalStorageConverterTests ()
+        tests.run()
+    }
 
 
     func testPerformanceExample() throws {

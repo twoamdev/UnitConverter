@@ -65,6 +65,9 @@
 		9CF3916D295C92C0000A7514 /* FuelEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3916C295C92C0000A7514 /* FuelEconomy.swift */; };
 		9CF3916F295C93F3000A7514 /* FuelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3916E295C93F3000A7514 /* FuelConverter.swift */; };
 		9CF39171295CE1B0000A7514 /* FuelConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39170295CE1B0000A7514 /* FuelConverterTests.swift */; };
+		9CF39173295D185A000A7514 /* DigitalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39172295D185A000A7514 /* DigitalStorage.swift */; };
+		9CF39175295D3172000A7514 /* DigitalStorageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39174295D3172000A7514 /* DigitalStorageConverter.swift */; };
+		9CF39177295D3529000A7514 /* DigitalStorageConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39176295D3529000A7514 /* DigitalStorageConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,9 @@
 		9CF3916C295C92C0000A7514 /* FuelEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEconomy.swift; sourceTree = "<group>"; };
 		9CF3916E295C93F3000A7514 /* FuelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelConverter.swift; sourceTree = "<group>"; };
 		9CF39170295CE1B0000A7514 /* FuelConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelConverterTests.swift; sourceTree = "<group>"; };
+		9CF39172295D185A000A7514 /* DigitalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorage.swift; sourceTree = "<group>"; };
+		9CF39174295D3172000A7514 /* DigitalStorageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorageConverter.swift; sourceTree = "<group>"; };
+		9CF39176295D3529000A7514 /* DigitalStorageConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorageConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +246,7 @@
 				9CF39160295C78FF000A7514 /* Pressure.swift */,
 				9CF39166295C8001000A7514 /* PlaneAngle.swift */,
 				9CF3916C295C92C0000A7514 /* FuelEconomy.swift */,
+				9CF39172295D185A000A7514 /* DigitalStorage.swift */,
 				9C87FD24293BA1D1004B107E /* UnitType.swift */,
 				9C87FD1A292E8965004B107E /* Unit.swift */,
 				9C87FD1C293A769A004B107E /* UnitGroup.swift */,
@@ -267,6 +274,7 @@
 				9CF39162295C7A62000A7514 /* PressureConverter.swift */,
 				9CF39168295C81F3000A7514 /* PlaneAngleConverter.swift */,
 				9CF3916E295C93F3000A7514 /* FuelConverter.swift */,
+				9CF39174295D3172000A7514 /* DigitalStorageConverter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -285,6 +293,7 @@
 				9CF39164295C7CAC000A7514 /* PressureConverterTests.swift */,
 				9CF3916A295C878F000A7514 /* PlaneAngleConverterTests.swift */,
 				9CF39170295CE1B0000A7514 /* FuelConverterTests.swift */,
+				9CF39176295D3529000A7514 /* DigitalStorageConverterTests.swift */,
 				9CF3913C2954D3B3000A7514 /* TestUtils.swift */,
 			);
 			path = UnitConverterTests;
@@ -399,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF39151295A0E44000A7514 /* EnergyConverter.swift in Sources */,
+				9CF39175295D3172000A7514 /* DigitalStorageConverter.swift in Sources */,
 				9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */,
 				9CF391392954CED4000A7514 /* Time.swift in Sources */,
 				9CF39163295C7A62000A7514 /* PressureConverter.swift in Sources */,
@@ -432,6 +442,7 @@
 				9CF39169295C81F3000A7514 /* PlaneAngleConverter.swift in Sources */,
 				9CF3914F295A0B1B000A7514 /* Energy.swift in Sources */,
 				9C87FD0F29296BA3004B107E /* LengthConverter.swift in Sources */,
+				9CF39173295D185A000A7514 /* DigitalStorage.swift in Sources */,
 				9CF3915B295C6024000A7514 /* AreaConverter.swift in Sources */,
 				9C87FD1F293A7C36004B107E /* UnitUtils.swift in Sources */,
 			);
@@ -441,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF39177295D3529000A7514 /* DigitalStorageConverterTests.swift in Sources */,
 				9CF3913B2954D2B4000A7514 /* SpeedConverterTests.swift in Sources */,
 				9CF3913F2954D76F000A7514 /* TimeConverterTests.swift in Sources */,
 				9CF3913D2954D3B3000A7514 /* TestUtils.swift in Sources */,

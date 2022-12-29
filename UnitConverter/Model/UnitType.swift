@@ -10,7 +10,7 @@ import Foundation
 
 
 enum UnitType : CaseIterable{
-    case length, temperature, speed, time, volume, mass, energy, frequency, area, pressure, planeAngle, fuelEconomy
+    case length, temperature, speed, time, volume, mass, energy, frequency, area, pressure, planeAngle, fuelEconomy, digitalStorage
     
     var name : String {
         switch self{
@@ -38,7 +38,8 @@ enum UnitType : CaseIterable{
             return "plane angle"
         case .fuelEconomy:
             return "fuel economy"
-            
+        case .digitalStorage:
+            return "digital storage"
         }
     }
     
@@ -68,10 +69,9 @@ enum UnitType : CaseIterable{
             return self.getAbbreviationsAndNames(unitCases: PlaneAngle.allCases)
         case .fuelEconomy:
             return self.getAbbreviationsAndNames(unitCases: FuelEconomy.allCases)
-        
-        
+        case .digitalStorage:
+            return self.getAbbreviationsAndNames(unitCases: DigitalStorage.allCases)
         }
-        
     }
     
     private func getAbbreviationsAndNames (unitCases : [UnitProtocol]) -> [(String,String)] {
