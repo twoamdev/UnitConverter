@@ -10,6 +10,10 @@ import Combine
 
 struct ContentView: View {
     
+    @State private var splashRunning : Bool = true
+    @State private var mainScreenOpacity : Double = 0.0
+    @State private var splashScreenOpacity : Double = 1.0
+    
     @State var units : [UnitGroup]
     @State var unitTypeIndex : Int
     @State var valueIndexA : Int
@@ -37,34 +41,61 @@ struct ContentView: View {
         valueIndexA = 0
         valueIndexB = 1
     }
+    
 
     var body: some View {
-        ZStack{
-            Color.white
-            VStack{
-                Spacer()
-                unitsTitle
-                Spacer()
-                topUnitSelectionButtons
-                inputAndResultFields
-                bottomUnitSelectionButtons
-                Spacer()
+        if !splashRunning {
+            
+            ZStack{
+                Color.white
+                VStack{
+                    unitsTitle
+                    Spacer()
+                    //topUnitSelectionButtons
+                   // inputAndResultFields
+                    //bottomUnitSelectionButtons
+                    Spacer()
+                }
             }
+            .onTapGesture {self.hideKeyboard()}
+             
+            
+            
         }
-        .onTapGesture {self.hideKeyboard()}
+        else{
+            splashScreen
+                .onAppear(perform: {
+                    // Delay of 3.5 seconds
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.splashRunning = false
+                    }
+                })
+        }
+    }
+    
+    var splashScreen: some View{
+        VStack{
+            Text("unit")
+            Text("convert")
+        }
+        .opacity(self.splashScreenOpacity)
     }
     
     var unitsTitle: some View{
         VStack{
             HStack{
-                Text(units[unitTypeIndex].getUnitType())
-                    .font(Font.custom("SourceCodePro-Regular", size: 22))
-                
                 Button(action: {
                     self.showUnitSwitcher.toggle()
                 }) {
-                    Image(systemName: "gearshape.circle.fill")
-                        .font(Font.system(.largeTitle))
+                    HStack{
+                        Text(units[unitTypeIndex].getUnitType())
+                            .font(Font.custom("Roboto-Bold", size: 30))
+                            .foregroundColor(.black)
+                        
+                    Image(systemName: "arrow.down.square")
+                        .font(.system(size: 30, weight: .thin))
+                        .foregroundColor(.black)
+                    }
                 }.sheet(isPresented: $showUnitSwitcher, onDismiss: {
                     updateUnitValueLabels()
                 }) {
@@ -75,8 +106,13 @@ struct ContentView: View {
                     )
                         
                 }
+                .padding(.leading)
+                Spacer()
             }
         }
+        .padding(.top)
+        .padding(.top)
+        .padding(.top)
     }
     
     var topUnitSelectionButtons: some View{

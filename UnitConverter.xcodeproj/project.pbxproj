@@ -68,6 +68,14 @@
 		9CF39173295D185A000A7514 /* DigitalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39172295D185A000A7514 /* DigitalStorage.swift */; };
 		9CF39175295D3172000A7514 /* DigitalStorageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39174295D3172000A7514 /* DigitalStorageConverter.swift */; };
 		9CF39177295D3529000A7514 /* DigitalStorageConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39176295D3529000A7514 /* DigitalStorageConverterTests.swift */; };
+		9CF3917D29638495000A7514 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3917829638494000A7514 /* Roboto-Medium.ttf */; };
+		9CF3917E29638495000A7514 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3917929638495000A7514 /* Roboto-Bold.ttf */; };
+		9CF3917F29638495000A7514 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3917A29638495000A7514 /* Roboto-Italic.ttf */; };
+		9CF3918029638495000A7514 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3917B29638495000A7514 /* Roboto-Regular.ttf */; };
+		9CF3918129638495000A7514 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3917C29638495000A7514 /* Roboto-Thin.ttf */; };
+		9CF39183296384F7000A7514 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF39182296384F7000A7514 /* Roboto-Light.ttf */; };
+		9CF391852963BFE3000A7514 /* StyleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391842963BFE3000A7514 /* StyleUtils.swift */; };
+		9CF391872963C279000A7514 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391862963C279000A7514 /* Buttons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +153,14 @@
 		9CF39172295D185A000A7514 /* DigitalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorage.swift; sourceTree = "<group>"; };
 		9CF39174295D3172000A7514 /* DigitalStorageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorageConverter.swift; sourceTree = "<group>"; };
 		9CF39176295D3529000A7514 /* DigitalStorageConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalStorageConverterTests.swift; sourceTree = "<group>"; };
+		9CF3917829638494000A7514 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		9CF3917929638495000A7514 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		9CF3917A29638495000A7514 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		9CF3917B29638495000A7514 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		9CF3917C29638495000A7514 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		9CF39182296384F7000A7514 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		9CF391842963BFE3000A7514 /* StyleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleUtils.swift; sourceTree = "<group>"; };
+		9CF391862963C279000A7514 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				9C87FCDD2927FC7F004B107E /* NumberFieldView.swift */,
+				9CF391862963C279000A7514 /* Buttons.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -219,6 +236,12 @@
 		9C87FCDF292802D8004B107E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9CF3917929638495000A7514 /* Roboto-Bold.ttf */,
+				9CF39182296384F7000A7514 /* Roboto-Light.ttf */,
+				9CF3917A29638495000A7514 /* Roboto-Italic.ttf */,
+				9CF3917829638494000A7514 /* Roboto-Medium.ttf */,
+				9CF3917B29638495000A7514 /* Roboto-Regular.ttf */,
+				9CF3917C29638495000A7514 /* Roboto-Thin.ttf */,
 				9C87FD06292867BF004B107E /* SourceCodePro-Regular.ttf */,
 				9C87FCF429284B0A004B107E /* Manrope-ExtraBold.ttf */,
 				9C87FCFA29286190004B107E /* Manrope-Bold.ttf */,
@@ -259,6 +282,7 @@
 		9C87FD0B29295369004B107E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9CF391842963BFE3000A7514 /* StyleUtils.swift */,
 				9CF3914029553847000A7514 /* ConversionTable.swift */,
 				9C87FD1E293A7C36004B107E /* UnitUtils.swift */,
 				9C87FD1029296BCA004B107E /* Converter.swift */,
@@ -382,12 +406,18 @@
 			files = (
 				9C87FD0029286190004B107E /* Manrope-Bold.ttf in Resources */,
 				9C87FCF529284B0A004B107E /* Manrope-ExtraBold.ttf in Resources */,
+				9CF3917E29638495000A7514 /* Roboto-Bold.ttf in Resources */,
 				9C87FD0229286190004B107E /* Manrope-Regular.ttf in Resources */,
 				9C87FD07292867BF004B107E /* SourceCodePro-Regular.ttf in Resources */,
+				9CF3917F29638495000A7514 /* Roboto-Italic.ttf in Resources */,
+				9CF39183296384F7000A7514 /* Roboto-Light.ttf in Resources */,
 				9C87FCD6291DD72B004B107E /* Preview Assets.xcassets in Resources */,
 				9C87FCD3291DD72B004B107E /* Assets.xcassets in Resources */,
+				9CF3918129638495000A7514 /* Roboto-Thin.ttf in Resources */,
+				9CF3918029638495000A7514 /* Roboto-Regular.ttf in Resources */,
 				9C87FD0329286190004B107E /* Manrope-ExtraLight.ttf in Resources */,
 				9C87FD0529286190004B107E /* Manrope-Medium.ttf in Resources */,
+				9CF3917D29638495000A7514 /* Roboto-Medium.ttf in Resources */,
 				9C87FD0429286190004B107E /* Manrope-SemiBold.ttf in Resources */,
 				9C87FD0129286190004B107E /* Manrope-Light.ttf in Resources */,
 			);
@@ -407,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF391852963BFE3000A7514 /* StyleUtils.swift in Sources */,
 				9CF39151295A0E44000A7514 /* EnergyConverter.swift in Sources */,
 				9CF39175295D3172000A7514 /* DigitalStorageConverter.swift in Sources */,
 				9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */,
@@ -421,6 +452,7 @@
 				9C87FD17292D926D004B107E /* Length.swift in Sources */,
 				9C87FD23293A91A0004B107E /* UnitProtocol.swift in Sources */,
 				9CF3915D295C603E000A7514 /* Area.swift in Sources */,
+				9CF391872963C279000A7514 /* Buttons.swift in Sources */,
 				9C87FCCF291DD729004B107E /* UnitConverterApp.swift in Sources */,
 				9CF3916F295C93F3000A7514 /* FuelConverter.swift in Sources */,
 				9C87FD15292D9173004B107E /* Temperature.swift in Sources */,
