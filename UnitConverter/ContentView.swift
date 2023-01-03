@@ -55,6 +55,8 @@ struct ContentView: View {
                    // inputAndResultFields
                     //bottomUnitSelectionButtons
                     Spacer()
+                    numpad
+                        .padding()
                 }
             }
             .onTapGesture {self.hideKeyboard()}
@@ -113,6 +115,39 @@ struct ContentView: View {
         .padding(.top)
         .padding(.top)
         .padding(.top)
+    }
+    
+    var numpad: some View{
+        VStack{
+            HStack{
+                Button(action: {}, label: {Buttons("1").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("2").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("3").numpadDigit})
+            }
+            HStack{
+                Button(action: {}, label: {Buttons("4").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("5").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("6").numpadDigit})
+            }
+            HStack{
+                Button(action: {}, label: {Buttons("7").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("8").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("9").numpadDigit})
+            }
+            HStack{
+                Button(action: {}, label: {Buttons(".").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("0").numpadDigit})
+                Spacer()
+                Button(action: {}, label: {Buttons("del").numpadDigit})
+            }
+        }
     }
     
     var topUnitSelectionButtons: some View{
