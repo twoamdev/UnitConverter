@@ -76,6 +76,8 @@
 		9CF39183296384F7000A7514 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF39182296384F7000A7514 /* Roboto-Light.ttf */; };
 		9CF391852963BFE3000A7514 /* StyleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391842963BFE3000A7514 /* StyleUtils.swift */; };
 		9CF391872963C279000A7514 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF391862963C279000A7514 /* Buttons.swift */; };
+		9CF3918929646EC8000A7514 /* MeasurementSwapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918829646EC8000A7514 /* MeasurementSwapView.swift */; };
+		9CF3918B2964F768000A7514 /* UnitDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918A2964F768000A7514 /* UnitDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,8 @@
 		9CF39182296384F7000A7514 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		9CF391842963BFE3000A7514 /* StyleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleUtils.swift; sourceTree = "<group>"; };
 		9CF391862963C279000A7514 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		9CF3918829646EC8000A7514 /* MeasurementSwapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementSwapView.swift; sourceTree = "<group>"; };
+		9CF3918A2964F768000A7514 /* UnitDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitDisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 				9C87FCCE291DD729004B107E /* UnitConverterApp.swift */,
 				9C87FCD0291DD729004B107E /* ContentView.swift */,
 				9C87FD18292D945E004B107E /* UnitSwitcherView.swift */,
+				9CF3918829646EC8000A7514 /* MeasurementSwapView.swift */,
 				9C87FD0B29295369004B107E /* Utilities */,
 				9C87FD0829291184004B107E /* Model */,
 				9C87FCDF292802D8004B107E /* Fonts */,
@@ -229,6 +234,7 @@
 			children = (
 				9C87FCDD2927FC7F004B107E /* NumberFieldView.swift */,
 				9CF391862963C279000A7514 /* Buttons.swift */,
+				9CF3918A2964F768000A7514 /* UnitDisplayView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				9CF39175295D3172000A7514 /* DigitalStorageConverter.swift in Sources */,
 				9C87FD2929462F83004B107E /* TemperatureConverter.swift in Sources */,
 				9CF391392954CED4000A7514 /* Time.swift in Sources */,
+				9CF3918B2964F768000A7514 /* UnitDisplayView.swift in Sources */,
 				9CF39163295C7A62000A7514 /* PressureConverter.swift in Sources */,
 				9CF391352954C135000A7514 /* Speed.swift in Sources */,
 				9C87FD19292D945E004B107E /* UnitSwitcherView.swift in Sources */,
@@ -460,6 +467,7 @@
 				9C87FD1B292E8965004B107E /* Unit.swift in Sources */,
 				9CF39143295742BF000A7514 /* Volume.swift in Sources */,
 				9CF391492959D319000A7514 /* Mass.swift in Sources */,
+				9CF3918929646EC8000A7514 /* MeasurementSwapView.swift in Sources */,
 				9CF391312954BF95000A7514 /* SpeedConverter.swift in Sources */,
 				9C87FD1D293A769A004B107E /* UnitGroup.swift in Sources */,
 				9C87FD27293C2EC5004B107E /* BootUp.swift in Sources */,

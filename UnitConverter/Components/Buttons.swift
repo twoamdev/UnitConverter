@@ -10,13 +10,17 @@ import SwiftUI
 struct Buttons: View {
     
     @State private var digit: String
+    @State private var image: String
+    
 
-    init(_ numpadDigit: String ) {
+    init(numpadDigit: String = "", image: String = "exclamationmark.triangle" ) {
         self.digit = numpadDigit
+        self.image = image
     }
     
     init(){
         self.digit = ""
+        self.image = "exclamationmark.triangle"
     }
     
     
@@ -38,6 +42,22 @@ struct Buttons: View {
             }
             .frame(width: 50, height: 50, alignment: .leading)
             .shadow(radius: 10)
+        }
+    }
+    
+    var options: some View{
+        VStack{
+            ZStack{
+            RoundedRectangle(cornerRadius: 8)
+                .fill(.white)
+                Image(systemName: self.image)
+                .font(.system(size: 25, weight: .medium))
+                .foregroundColor(.black)
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.black, lineWidth: 1)
+            }
+            .frame(width: 70, height: 120, alignment: .leading)
+            
         }
     }
     

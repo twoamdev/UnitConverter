@@ -22,6 +22,7 @@ struct ContentView: View {
     @State var unitValueB : String
     
     @State private var showUnitSwitcher : Bool = false
+    @State private var showMeasurementSwitcher : Bool = false
     @State private var inputA : String = ""
     @State private var inputB : String = ""
     
@@ -42,6 +43,16 @@ struct ContentView: View {
         valueIndexB = 1
     }
     
+    func updateInputValue(_ keystroke : String){
+        if keystroke == "del"{
+            inputA = String(inputA.dropLast())
+        }
+        else{
+            inputA = inputA + keystroke
+        }
+        inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
+    }
+    
 
     var body: some View {
         if !splashRunning {
@@ -51,9 +62,8 @@ struct ContentView: View {
                 VStack{
                     unitsTitle
                     Spacer()
-                    //topUnitSelectionButtons
-                   // inputAndResultFields
-                    //bottomUnitSelectionButtons
+                    inputSection
+                    outputSection
                     Spacer()
                     numpad
                         .padding()
@@ -117,35 +127,61 @@ struct ContentView: View {
         .padding(.top)
     }
     
+    var inputSection : some View{
+        HStack{
+            
+            UnitDisplayView(color: AppColor.colorA, input: $inputA, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexA)
+
+            Button(action: {
+                self.showMeasurementSwitcher.toggle()
+            }) {
+                Buttons(image: "slider.horizontal.3").options
+            }.sheet(isPresented: $showMeasurementSwitcher,
+                    onDismiss: {
+                inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
+            }) {
+                MeasurementSwapView(units: $units, unitTypeIndex: $unitTypeIndex, valueIndexA: $valueIndexA, valueIndexB: $valueIndexB, userInput: $inputA, userResult: $inputB, viewIsActive: $showMeasurementSwitcher)
+            }
+        }
+    }
+    
+    var outputSection : some View{
+        HStack{
+            
+            UnitDisplayView(color: AppColor.colorB, input: $inputB, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexB)
+            Button(action: {}, label: {Buttons(image: "arrow.left.arrow.right").options})
+        }
+    }
+    
     var numpad: some View{
         VStack{
             HStack{
-                Button(action: {}, label: {Buttons("1").numpadDigit})
+                Button(action: {updateInputValue("1")}, label: {Buttons(numpadDigit: "1").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("2").numpadDigit})
+                Button(action: {updateInputValue("2")}, label: {Buttons(numpadDigit: "2").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("3").numpadDigit})
+                Button(action: {updateInputValue("3")}, label: {Buttons(numpadDigit: "3").numpadDigit})
             }
             HStack{
-                Button(action: {}, label: {Buttons("4").numpadDigit})
+                Button(action: {updateInputValue("4")}, label: {Buttons(numpadDigit: "4").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("5").numpadDigit})
+                Button(action: {updateInputValue("5")}, label: {Buttons(numpadDigit: "5").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("6").numpadDigit})
+                Button(action: {updateInputValue("6")}, label: {Buttons(numpadDigit: "6").numpadDigit})
             }
             HStack{
-                Button(action: {}, label: {Buttons("7").numpadDigit})
+                Button(action: {updateInputValue("7")}, label: {Buttons(numpadDigit: "7").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("8").numpadDigit})
+                Button(action: {updateInputValue("8")}, label: {Buttons(numpadDigit: "8").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("9").numpadDigit})
+                Button(action: {updateInputValue("9")}, label: {Buttons(numpadDigit: "9").numpadDigit})
             }
             HStack{
-                Button(action: {}, label: {Buttons(".").numpadDigit})
+                Button(action: {updateInputValue(".")}, label: {Buttons(numpadDigit: ".").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("0").numpadDigit})
+                Button(action: {updateInputValue("0")}, label: {Buttons(numpadDigit: "0").numpadDigit})
                 Spacer()
-                Button(action: {}, label: {Buttons("del").numpadDigit})
+                Button(action: {updateInputValue("del")}, label: {Buttons(numpadDigit: "del").numpadDigit})
             }
         }
     }
