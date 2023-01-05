@@ -23,8 +23,8 @@ struct ContentView: View {
     
     @State private var showUnitSwitcher : Bool = false
     @State private var showMeasurementSwitcher : Bool = false
-    @State private var inputA : String = ""
-    @State private var inputB : String = ""
+    @State private var inputA : String = "0"
+    @State private var inputB : String = "0"
     
     
     func swapUnitALabel(_ unitLabelName : String){
@@ -35,44 +35,61 @@ struct ContentView: View {
         unitValueB = unitLabelName
     }
     
-    func updateUnitValueLabels(){
-        //until predetermined implementaion is complete, just default to 0 and 1
-        unitValueA = units[unitTypeIndex].unitMemberFullName(index: 0)
-        unitValueB = units[unitTypeIndex].unitMemberFullName(index: 1)
-        valueIndexA = 0
-        valueIndexB = 1
+    func swap(){
+        updateUnitValueLabels(valueIndexB,valueIndexA)
+        let oldInputA = inputA
+        inputA = inputB == "---" ? "0" : inputB
+        inputB = oldInputA
+        updateInputValue()
     }
     
-    func updateInputValue(_ keystroke : String){
+    func updateUnitValueLabels(_ index0 : Int = 0, _ index1 : Int = 1){
+        //until predetermined implementaion is complete, just default to 0 and 1
+        unitValueA = units[unitTypeIndex].unitMemberFullName(index: index0)
+        unitValueB = units[unitTypeIndex].unitMemberFullName(index: index1)
+        valueIndexA = index0
+        valueIndexB = index1
+    }
+    
+    func updateInputValue(_ keystroke : String = ""){
         if keystroke == "del"{
             inputA = String(inputA.dropLast())
+        }
+        else if keystroke == "clear"{
+            inputA = "0"
+        }
+        else if keystroke == "+"{
+            inputA = inputA.contains("-") ? String(inputA.dropFirst()) : String("-" + inputA)
+        }
+        else if inputA == "0" && keystroke != "."{
+            inputA = keystroke
+        }
+        else if inputA.contains(".") && keystroke == "."{
+            inputA = inputA
         }
         else{
             inputA = inputA + keystroke
         }
+        
+        inputA = inputA == "-" ? "0" : inputA
+        inputA = inputA == "" ? "0" : inputA
         inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
+        inputB = inputB == "" ? "---" : inputB
     }
     
 
     var body: some View {
         if !splashRunning {
-            
-            ZStack{
-                Color.white
-                VStack{
-                    unitsTitle
-                    Spacer()
-                    inputSection
-                    outputSection
-                    Spacer()
-                    numpad
-                        .padding()
-                }
+            VStack{
+                unitsTitle
+                Spacer()
+                inputSection
+                outputSection
+                Spacer()
+                numpad
+                    .padding()
+                    .padding(.bottom)
             }
-            .onTapGesture {self.hideKeyboard()}
-             
-            
-            
         }
         else{
             splashScreen
@@ -104,9 +121,10 @@ struct ContentView: View {
                             .font(Font.custom("Roboto-Bold", size: 30))
                             .foregroundColor(.black)
                         
-                    Image(systemName: "arrow.down.square")
-                        .font(.system(size: 30, weight: .thin))
-                        .foregroundColor(.black)
+                        Image(systemName: "arrow.down.square")
+                            .font(.system(size: 26, weight: .light))
+                            .foregroundColor(.black)
+                        
                     }
                 }.sheet(isPresented: $showUnitSwitcher, onDismiss: {
                     updateUnitValueLabels()
@@ -114,6 +132,7 @@ struct ContentView: View {
                     UnitSwitcherView(units: $units,
                                      unitTypeIndex: $unitTypeIndex,
                                      userInput: $inputA,
+                                     userResult: $inputB,
                                      viewIsActive: $showUnitSwitcher
                     )
                         
@@ -149,12 +168,19 @@ struct ContentView: View {
         HStack{
             
             UnitDisplayView(color: AppColor.colorB, input: $inputB, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexB)
-            Button(action: {}, label: {Buttons(image: "arrow.left.arrow.right").options})
+            Button(action: {self.swap()}, label: {Buttons(image: "arrow.left.arrow.right").options})
         }
     }
     
     var numpad: some View{
         VStack{
+            HStack{
+                Button(action: {updateInputValue("e")}, label: {Buttons(numpadDigit: "e").numpadDigit})
+                Spacer()
+                Button(action: {updateInputValue("+")}, label: {Buttons(numpadDigit: "+/-").numpadDigit})
+                Spacer()
+                Button(action: {updateInputValue("clear")}, label: {Buttons(numpadDigit: "clear").numpadDigit})
+            }
             HStack{
                 Button(action: {updateInputValue("1")}, label: {Buttons(numpadDigit: "1").numpadDigit})
                 Spacer()
@@ -186,102 +212,9 @@ struct ContentView: View {
         }
     }
     
-    var topUnitSelectionButtons: some View{
-        ScrollView(.horizontal){
-            VStack{
-                let gridItem = GridItem(.fixed(40))
-                let rows = [gridItem, gridItem, gridItem]
-                
-                LazyHGrid(rows: rows){
-                    ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
-                        let unitGroup = units[unitTypeIndex]
-                        Button(action: {
-                            self.valueIndexA = i
-                            self.swapUnitALabel(unitGroup.unitMemberFullName(index: i))
-                        },label: {
-                            Text(unitGroup.unitMemberAbbreviation(index: i))
-                                .foregroundColor(self.valueIndexA == i ? Color.red : Color.blue)
-                        })
-                            .onChange(of: self.valueIndexA, perform: { _ in
-                                inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
-                            })
-                    }
-                    .buttonStyle(.bordered)
-                    .font(Font.custom("SourceCodePro-Regular", size: 18))
-                    .padding()
-                }
-            }
-        }
-
-    }
-    
-    var inputAndResultFields: some View{
-        VStack{
-            VStack{
-                HStack{
-                    Spacer()
-                    Text(unitValueA)
-                        .font(Font.custom("SourceCodePro-Regular", size: 12))
-                }
-            
-                NumberFieldView(name: $unitValueA, input: $inputA, charLimit: 18)
-                    .textFieldStyle(.roundedBorder)
-                    .onChange(of: inputA, perform: { _ in
-                        inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: inputA)
-                    })
-            }
-            .padding(.horizontal)
-            
-            VStack{
-                NumberFieldView(name: $unitValueB, input: $inputB, charLimit: 25)
-                    .textFieldStyle(.roundedBorder)
-                    .disabled(true)
-                HStack{
-                    Spacer()
-                    Text(unitValueB)
-                        .font(Font.custom("SourceCodePro-Regular", size: 12))
-                }
-            }
-            .padding(.horizontal)
-        }
-    }
-    
-    var bottomUnitSelectionButtons: some View{
-        ScrollView(.horizontal){
-            VStack{
-            let gridItem = GridItem(.fixed(40))
-            let rows = [gridItem, gridItem, gridItem]
-            
-            LazyHGrid(rows: rows){
-                
-                ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){ i in
-                    let unit = units[unitTypeIndex]
-                    Button(action: {
-                        self.valueIndexB = i
-                        self.swapUnitBLabel(unit.unitMemberFullName(index: i))
-                    },label: {
-                        Text(unit.unitMemberAbbreviation(index: i))
-                            .foregroundColor(self.valueIndexB == i ? Color.red : Color.blue)
-                    })
-                        .onChange(of: self.valueIndexB, perform: { _ in
-                            inputB = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: unitValueA, unitTypeB: unitValueB, valueA: inputA)
-                        })
-                }
-                .buttonStyle(.bordered)
-                .font(Font.custom("SourceCodePro-Regular", size: 18))
-                .padding()
-            }
-        }
-        }
-    }
+  
 }
 
-extension View {
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
-    }
-}
 
 /*struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -33,15 +33,15 @@ struct Buttons: View {
         VStack{
             ZStack{
             RoundedRectangle(cornerRadius: 8)
-                .fill(.white)
+                .fill(.black)
             Image(systemName: "xmark")
                 .font(.system(size: 25, weight: .regular))
-                .foregroundColor(.black)
+                .foregroundColor(.white)
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.black, lineWidth: 1)
             }
             .frame(width: 50, height: 50, alignment: .leading)
-            .shadow(radius: 10)
+            //.shadow(radius: 10)
         }
     }
     
@@ -56,7 +56,7 @@ struct Buttons: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.black, lineWidth: 1)
             }
-            .frame(width: 70, height: 120, alignment: .leading)
+            .frame(width: 70, height: 125, alignment: .leading)
             
         }
     }
@@ -71,6 +71,11 @@ struct Buttons: View {
                         .font(.system(size: 26, weight: .medium))
                         .foregroundColor(.black)
                 }
+                else if(self.digit == "clear"){
+                    Image(systemName: "trash")
+                        .font(.system(size: 26, weight: .medium))
+                        .foregroundColor(.black)
+                }
                 else{
                     Text(self.digit)
                         .font(Font.custom("Roboto-Medium", size: 26))
@@ -79,7 +84,7 @@ struct Buttons: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black, lineWidth: 1)
             }
-            .frame(width: 105, height: 50)
+            .frame(width: 105, height: 40)
         }
     }
 }

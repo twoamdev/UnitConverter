@@ -42,7 +42,7 @@ struct UnitDisplayView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black, lineWidth: 1)
             }
-            .frame(width: 265, height: 120, alignment: .leading)
+            .frame(width: 265, height: 125, alignment: .leading)
             
         }
     }

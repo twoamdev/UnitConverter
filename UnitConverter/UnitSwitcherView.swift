@@ -12,6 +12,7 @@ struct UnitSwitcherView: View {
     @Binding var units : [UnitGroup]
     @Binding var unitTypeIndex : Int
     @Binding var userInput : String
+    @Binding var userResult : String
     @Binding var viewIsActive : Bool
     
     var body: some View {
@@ -39,7 +40,8 @@ struct UnitSwitcherView: View {
                         }
                         .onTapGesture {
                             if unitTypeIndex != i{
-                                userInput = ""
+                                userInput = "0"
+                                userResult = "0"
                                 viewIsActive.toggle()
                             }
                             unitTypeIndex = i

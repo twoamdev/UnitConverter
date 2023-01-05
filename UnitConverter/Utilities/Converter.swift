@@ -105,7 +105,9 @@ struct Converter {
         }
         return String(value)
          */
-        
+        if value == 0{
+            return "0"
+        }
             
         if value >= 10000000 {
             let formatter = NumberFormatter()
