@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @State private var splashRunning : Bool = true
     @State private var mainScreenOpacity : Double = 0.0
-    @State private var splashScreenOpacity : Double = 1.0
+    @State private var splashScale : CGFloat = 1.0
     
     @State var units : [UnitGroup]
     @State var unitTypeIndex : Int
@@ -25,6 +25,7 @@ struct ContentView: View {
     @State private var showMeasurementSwitcher : Bool = false
     @State private var inputA : String = "0"
     @State private var inputB : String = "0"
+    
     
     
     func swapUnitALabel(_ unitLabelName : String){
@@ -49,6 +50,10 @@ struct ContentView: View {
         unitValueB = units[unitTypeIndex].unitMemberFullName(index: index1)
         valueIndexA = index0
         valueIndexB = index1
+    }
+    
+    func copyToClipboard(_ value : String){
+        UIPasteboard.general.string = value
     }
     
     func updateInputValue(_ keystroke : String = ""){
@@ -79,7 +84,7 @@ struct ContentView: View {
     
 
     var body: some View {
-        if !splashRunning {
+        if self.splashScale <= 0.0 {
             VStack{
                 unitsTitle
                 Spacer()
@@ -94,20 +99,26 @@ struct ContentView: View {
         else{
             splashScreen
                 .onAppear(perform: {
-                    // Delay of 3.5 seconds
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.splashRunning = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        withAnimation(.easeOut(duration: 5.0)){
+                            self.splashRunning = false
+                            self.splashScale = 0.0
+                        }
                     }
                 })
+                
+                
         }
     }
     
     var splashScreen: some View{
         VStack{
             Text("unit")
-            Text("convert")
+                .font(Font.custom("Roboto-Bold", size: 30))
+            Text("swap")
+                .font(Font.custom("Roboto-Bold", size: 30))
         }
-        .opacity(self.splashScreenOpacity)
+        .scaleEffect(self.splashScale)
     }
     
     var unitsTitle: some View{
@@ -148,8 +159,12 @@ struct ContentView: View {
     
     var inputSection : some View{
         HStack{
+            Button(action: {self.copyToClipboard(inputA)}, label: {
+                UnitDisplayView(color: AppColor.colorA, input: $inputA, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexA)
+                
+            })
+                .buttonStyle(.plain)
             
-            UnitDisplayView(color: AppColor.colorA, input: $inputA, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexA)
 
             Button(action: {
                 self.showMeasurementSwitcher.toggle()
@@ -166,8 +181,12 @@ struct ContentView: View {
     
     var outputSection : some View{
         HStack{
-            
+            Button(action: {self.copyToClipboard(inputB)}, label:{
             UnitDisplayView(color: AppColor.colorB, input: $inputB, units: $units, unitTypeIndex: $unitTypeIndex, valueIndex: $valueIndexB)
+            })
+                .buttonStyle(.plain)
+                   
+            
             Button(action: {self.swap()}, label: {Buttons(image: "arrow.left.arrow.right").options})
         }
     }
@@ -175,39 +194,39 @@ struct ContentView: View {
     var numpad: some View{
         VStack{
             HStack{
+                Spacer()
                 Button(action: {updateInputValue("e")}, label: {Buttons(numpadDigit: "e").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("+")}, label: {Buttons(numpadDigit: "+/-").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("clear")}, label: {Buttons(numpadDigit: "clear").numpadDigit})
+                Spacer()
             }
             HStack{
+                Spacer()
                 Button(action: {updateInputValue("1")}, label: {Buttons(numpadDigit: "1").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("2")}, label: {Buttons(numpadDigit: "2").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("3")}, label: {Buttons(numpadDigit: "3").numpadDigit})
+                Spacer()
             }
             HStack{
+                Spacer()
                 Button(action: {updateInputValue("4")}, label: {Buttons(numpadDigit: "4").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("5")}, label: {Buttons(numpadDigit: "5").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("6")}, label: {Buttons(numpadDigit: "6").numpadDigit})
+                Spacer()
             }
             HStack{
+                Spacer()
                 Button(action: {updateInputValue("7")}, label: {Buttons(numpadDigit: "7").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("8")}, label: {Buttons(numpadDigit: "8").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("9")}, label: {Buttons(numpadDigit: "9").numpadDigit})
+                Spacer()
             }
             HStack{
+                Spacer()
                 Button(action: {updateInputValue(".")}, label: {Buttons(numpadDigit: ".").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("0")}, label: {Buttons(numpadDigit: "0").numpadDigit})
-                Spacer()
                 Button(action: {updateInputValue("del")}, label: {Buttons(numpadDigit: "del").numpadDigit})
+                Spacer()
             }
         }
     }

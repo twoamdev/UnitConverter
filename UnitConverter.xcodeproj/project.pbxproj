@@ -345,6 +345,8 @@
 			dependencies = (
 			);
 			name = UnitConverter;
+			packageProductDependencies = (
+			);
 			productName = UnitConverter;
 			productReference = 9C87FCCB291DD729004B107E /* UnitConverter.app */;
 			productType = "com.apple.product-type.application";
@@ -395,6 +397,8 @@
 				Base,
 			);
 			mainGroup = 9C87FCC2291DD729004B107E;
+			packageReferences = (
+			);
 			productRefGroup = 9C87FCCC291DD729004B107E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

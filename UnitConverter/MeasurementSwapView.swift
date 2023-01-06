@@ -24,94 +24,105 @@ struct MeasurementSwapView: View {
         ZStack{
             VStack(spacing: 0){
                 VStack{
-                    List{
-                        
-                        ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){  i in
-                            let unitGroup = units[unitTypeIndex]
-                            HStack{
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(i == valueIndexA ? AppColor.colorA : .white)
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.black, lineWidth: 1)
+                    ScrollViewReader{ proxy in
+                        List{
+                            
+                            ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){  i in
+                                let unitGroup = units[unitTypeIndex]
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(i == valueIndexA ? AppColor.colorA : .white)
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.black, lineWidth: 1)
+                                        
+                                    }
+                                    .frame(width: 40, height: 40, alignment: .leading)
+                                    .padding(0)
+                                    
+                                    
+                                    Text(unitGroup.unitMemberFullName(index: i))
+                                        .font(Font.custom("Roboto-Regular", size: 26))
+                                    Spacer()
                                     
                                 }
-                                .frame(width: 40, height: 40, alignment: .leading)
-                                .padding(0)
-                                
-                                
-                                Text(unitGroup.unitMemberFullName(index: i))
-                                    .font(Font.custom("Roboto-Regular", size: 26))
-                                Spacer()
-                                
-                            }
-                            .onTapGesture {
-                                if valueIndexA != i{
-                                    valueAChanged = true
+                                .onTapGesture {
+                                    if valueIndexA != i{
+                                        valueAChanged = true
+                                    }
+                                    valueIndexA = i
+                                    if valueAChanged && valueBChanged {
+                                        userResult = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: userInput)
+                                        viewIsActive.toggle()
+                                    }
+                                    
+                                     
                                 }
-                                valueIndexA = i
-                                if valueAChanged && valueBChanged {
-                                    userResult = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: userInput)
-                                    viewIsActive.toggle()
-                                }
-                                
-                                 
+                                .listRowSeparator(.hidden)
+                                .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                .id(i)
                             }
-                            .listRowSeparator(.hidden)
-                            .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
-                        }
-                    
                         
+                            
+                        }
+                        .listStyle(.plain)
+                        .onAppear(perform: {
+                            proxy.scrollTo(valueIndexA, anchor: .center)
+                        })
                     }
-                    .listStyle(.plain)
                 }
                 Divider()
                     
                 VStack{
-                    List{
-                        
-                        ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){  i in
-                            let unitGroup = units[unitTypeIndex]
-                            HStack{
-                                Spacer()
-                                Text(unitGroup.unitMemberFullName(index: i))
-                                    .font(Font.custom("Roboto-Regular", size: 26))
-                                
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(i == valueIndexB ? AppColor.colorB : .white)
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.black, lineWidth: 1)
+                    ScrollViewReader{ proxy in
+                        List{
+                            
+                            ForEach(0..<units[unitTypeIndex].getMemberCount(), id: \.self){  i in
+                                let unitGroup = units[unitTypeIndex]
+                                HStack{
+                                    Spacer()
+                                    Text(unitGroup.unitMemberFullName(index: i))
+                                        .font(Font.custom("Roboto-Regular", size: 26))
+                                    
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(i == valueIndexB ? AppColor.colorB : .white)
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.black, lineWidth: 1)
+                                        
+                                    }
+                                    .frame(width: 40, height: 40, alignment: .leading)
+                                    .padding(0)
+                                    
+                                    
+                                    
+                                    
                                     
                                 }
-                                .frame(width: 40, height: 40, alignment: .leading)
-                                .padding(0)
-                                
-                                
-                                
-                                
-                                
-                            }
-                            .onTapGesture {
-                                
-                                if valueIndexB != i{
-                                    valueBChanged = true
+                                .onTapGesture {
+                                    
+                                    if valueIndexB != i{
+                                        valueBChanged = true
+                                    }
+                                    valueIndexB = i
+                                    if valueAChanged && valueBChanged {
+                                        userResult = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: userInput)
+                                        viewIsActive.toggle()
+                                    }
+                                     
                                 }
-                                valueIndexB = i
-                                if valueAChanged && valueBChanged {
-                                    userResult = Converter.convertAtoB(units: units[unitTypeIndex].getUnitType() ,unitTypeA: units[unitTypeIndex].unitMemberFullName(index: valueIndexA), unitTypeB: units[unitTypeIndex].unitMemberFullName(index: valueIndexB), valueA: userInput)
-                                    viewIsActive.toggle()
-                                }
-                                 
+                                .listRowSeparator(.hidden)
+                                .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                .id(i)
                             }
-                            .listRowSeparator(.hidden)
-                            .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
-                        }
-                    
                         
+                            
+                        }
+                        .listStyle(.plain)
+                        .onAppear(perform: {
+                            proxy.scrollTo(valueIndexB, anchor: .center)
+                        })
                     }
-                    .listStyle(.plain)
-                    
                 }
             }
             
